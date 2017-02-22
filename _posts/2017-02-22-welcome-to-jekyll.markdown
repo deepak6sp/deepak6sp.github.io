@@ -5,7 +5,7 @@ date:   2017-02-22 22:21:57 +1100
 categories: Build Tools
 ---
 
-Build tools are becoming very popular these days. It is must learn technology for
+Build tools are becoming very popular these days. It is a must learn technology for
 any web developer. Although, there are so many build tools such as gulp, grunt,
 however, Webpack is at the top.
 
@@ -17,7 +17,7 @@ Learn more about [yarn here]
 On command line, do
 {% highlight ruby %}
 yarn init
-yarn add -dev webpack webpack-dev-server
+yarn add --dev webpack webpack-dev-server
 {% endhighlight %}
 
 Lets write a basic webpack config file.
