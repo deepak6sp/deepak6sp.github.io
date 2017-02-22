@@ -1,25 +1,63 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Webpack Basics"
 date:   2017-02-22 22:21:57 +1100
-categories: jekyll update
+categories: Build Tools
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+Build tools are becoming very popular these days. It is must learn technology for
+any web developer. Although, there are so many build tools such as gulp, grunt,
+however, Webpack is at the top.
 
-Jekyll also offers powerful support for code snippets:
+Lets start.
+Yarn is my favourite these days, instead of npm. Yarn is faster. It works offline,
+which means you don't need internet to install packages once installed.
+Learn more about [yarn here]
 
+On command line, do
 {% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
+yarn init
+yarn add -dev webpack webpack-dev-server
 {% endhighlight %}
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+Lets write a basic webpack config file.
+{% highlight ruby %}
+module.exports = {
+  entry:  "./app/main.js",
+  output: {
+    path: __dirname + "/public",
+    filename: "bundle.js"
+  }
+}
+{% endhighlight %}
 
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+Let me explain each line.
+
+`entry` : is the app entry point.
+
+`__dirname` : gives us current folder path.
+
+`output - path`: is where [ filename - on the next line ] file is saved.
+
+`output - filename` : is the name of the file. In our case, it is bundle.js
+
+So in our index.html , we can just add a script
+{% highlight ruby %}
+<script type="text/javascript" src="bundle.js"></script>
+{% endhighlight %}
+
+How to run webpack-dev-server?
+
+You could run web pack-dev-server from command line but I prefer to run through npm scripts.
+So, in package.json file, under scripts
+{% highlight ruby %}
+"scripts": {
+  "start": "webpack --progress --colors",
+  "server": "webpack-dev-server --progress --colors  --content-base ./ —port 3000 "
+}
+{% endhighlight %}
+Here, content-base is where html is served from - in this case, ./ means the current directory.
+Now, go to `http://localhost:3000/` and see the working page.
+
+
+[yarn here]: https://yarnpkg.com/en/
