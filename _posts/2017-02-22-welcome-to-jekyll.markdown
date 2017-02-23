@@ -5,22 +5,30 @@ date:   2017-02-22 22:21:57 +1100
 categories: Build Tools
 ---
 
-Build tools are becoming very popular these days. It is must learn technology for
-any web developer. Although, there are so many build tools such as gulp, grunt,
-however, Webpack is at the top.
+Build tools are becoming very popular these days. It is a must learn technology for
+any web developer these days. Although, there are so many build tools such as gulp and grunt,
+webpack is at the top.
 
 Lets start.
-Yarn is my favourite these days, instead of npm. Yarn is faster. It works offline,
-which means you don't need internet to install packages once installed.
+Yarn is my favourite these days as Yarn is faster and also takes offline approach,
+which means, you don't need internet connectivity to install packages once installed.
+
 Learn more about [yarn here]
 
 On command line, do
 {% highlight ruby %}
 yarn init
-yarn add -dev webpack webpack-dev-server
+yarn add --dev webpack webpack-dev-server
 {% endhighlight %}
 
-Lets write a basic webpack config file.
+
+Create a filename **webpack.config.js** at
+the root of the project.
+{% highlight ruby %}
+touch webpack.config.js
+{% endhighlight %}
+
+and lets write a basic webpack configuration. <br>
 {% highlight ruby %}
 module.exports = {
   entry:  "./app/main.js",
