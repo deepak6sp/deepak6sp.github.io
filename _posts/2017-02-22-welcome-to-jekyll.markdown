@@ -28,7 +28,7 @@ the root of the project.
 touch webpack.config.js
 {% endhighlight %}
 
-and lets write a basic webpack configuration. <br>
+and lets write basic webpack configuration. <br>
 {% highlight ruby %}
 module.exports = {
   entry:  "./app/main.js",
@@ -39,33 +39,60 @@ module.exports = {
 }
 {% endhighlight %}
 
-Let me explain each line.
-
 `entry` : is the app entry point.
 
 `__dirname` : gives us current folder path.
 
-`output - path`: is where [ filename - on the next line ] file is saved.
+`output - path`: is the output folder
 
 `output - filename` : is the name of the file. In our case, it is bundle.js
 
-So in our index.html , we can just add a script
+So in index.html , we can just add a script tag
 {% highlight ruby %}
 <script type="text/javascript" src="bundle.js"></script>
 {% endhighlight %}
 
 How to run webpack-dev-server?
 
-You could run web pack-dev-server from command line but I prefer to run through npm scripts.
+You could run web pack-dev-server from command line but I prefer to run through
+scripts in package.json.
 So, in package.json file, under scripts
 {% highlight ruby %}
 "scripts": {
   "start": "webpack --progress --colors",
-  "server": "webpack-dev-server --progress --colors  --content-base ./ —port 3000 "
+  "server": "webpack-dev-server --progress --colors  --content-base ./ —-port 3000 "
 }
 {% endhighlight %}
-Here, content-base is where html is served from - in this case, ./ means the current directory.
+**--content-base** is where html is served from, './' represents root folder and <br>
+**--port** is which port to use, which is 3000 in this case
+
+On the command line,
+{% highlight ruby %}
+yarn run server
+{% endhighlight %}
+
+Webpack-dev-server watches for any file chnages and serves bundle.js from the
+memory.
+>Webpack-dev-server will not generate file in the output folder.
+
+However, run
+{% highlight ruby %}
+yarn start
+{% endhighlight %}
+will start webpack and generates bundle.js file in the output folder.
+
 Now, go to `http://localhost:3000/` and see the working page.
+
+Passing --watch argument watches file changes.
+So, in package.json file, under scripts
+{% highlight ruby %}
+"scripts": {
+  "start": "webpack --progress --colors",
+  "watch": "webpack --progress --colors --watch",
+  "server": "webpack-dev-server --progress --colors  --content-base ./ —-port 3000 "
+}
+{% endhighlight %}
+
 
 
 [yarn here]: https://yarnpkg.com/en/

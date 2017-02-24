@@ -4,12 +4,10 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+I am a Web Developer having 4+ years of experience mainly focusing on UI and
+Front end development. I develop with skills of minimal usability designs and
+using core XHTML/HTML, CSS and Javascript. My coding follows reusable component
+based structure for easy maintenance, scaling and debugging. I also have experience
+using PHP and Node frameworks.
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jekyll" %} /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+I love blogging and to share my knowledge that focuses mainly on latest web technologies involving Javascript and Node. However, I would also like to include tips and tricks about UX/UI, front end and back end technologies
