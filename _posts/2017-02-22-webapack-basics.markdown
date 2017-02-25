@@ -10,7 +10,7 @@ any web developer these days. Although, there are so many build tools such as gu
 webpack is at the top.
 
 Lets start.
-Yarn is my favourite these days as Yarn is faster and also takes offline approach,
+Yarn is my favourite these days as Yarn is faster than npm and also takes offline approach,
 which means, you don't need internet connectivity to install packages once installed.
 
 Learn more about [yarn here]
@@ -71,7 +71,7 @@ On the command line,
 yarn run server
 {% endhighlight %}
 
-Webpack-dev-server watches for any file chnages and serves bundle.js from the
+Webpack-dev-server watches for any file changes and serves bundle.js from the
 memory.
 >Webpack-dev-server will not generate file in the output folder.
 
