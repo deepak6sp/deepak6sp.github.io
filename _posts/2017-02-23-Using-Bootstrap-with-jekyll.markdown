@@ -4,8 +4,8 @@ title:  "Using Bootstrap with Jekyll"
 date:   2017-02-23 22:21:57 +1100
 categories: Build Tools
 ---
-Before starting with this section, if you would like to know how to get started with
-Jekyll, click here.
+Before starting with this section, if you would like to know 'How to get started with
+Jekyll', click <a href="{{page.previous.url}}">here</a>.
 
 To use bootstrap or any other front end framework,  we need to have directory structure as shown here
 `https://jekyllrb.com/docs/structure/`
