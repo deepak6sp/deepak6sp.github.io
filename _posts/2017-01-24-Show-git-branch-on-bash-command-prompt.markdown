@@ -2,7 +2,7 @@
 layout: post
 title:  "Show git branch on the bash command prompt"
 date:   2017-01-24 22:21:57 +1100
-categories: Git
+category: Git
 ---
 By default, command prompt does not display git branch names. You would generally see this.
 
