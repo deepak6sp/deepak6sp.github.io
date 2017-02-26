@@ -34,7 +34,7 @@ Under `_layouts`, create new file `default.html` and add the following content.
       {{ "{{ content " }}}}
     </div>
   </div>
-  {% include scripts.html %}
+  {{ " {% include scripts.html" }} %}
 </body>
 </html>
 {% endhighlight %}
