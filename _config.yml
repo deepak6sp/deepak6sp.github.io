@@ -37,3 +37,6 @@ exclude:
 navigation:
  - title: About
    url: /about
+   
+   
+permalink: /:categories/:title/
