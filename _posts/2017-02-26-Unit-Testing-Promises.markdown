@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "How to wait for promises during unit test"
-date:   2017-01-27 22:21:57 +1100
+date:   2017-02-26 22:21:57 +1100
 category: Testing
 ---
 Image you are testing a Javascript function which calls a url and, that url returns a promise with ‘SOME VALUE’.
