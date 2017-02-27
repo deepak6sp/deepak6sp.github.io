@@ -2,7 +2,7 @@
 layout: post
 title:  "Using Bootstrap with Jekyll"
 date:   2017-02-23 22:21:57 +1100
-category: BuildTools
+categories: BuildTools
 ---
 Before starting with this section, if you would like to know 'How to get started with
 Jekyll', click <a href="{{page.previous.url}}">here</a>.

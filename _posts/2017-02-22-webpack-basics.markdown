@@ -2,7 +2,7 @@
 layout: post
 title:  "Webpack Basics"
 date:   2017-02-22 22:21:57 +1100
-category: BuildTools
+categories: BuildTools
 ---
 
 Build tools are becoming very popular these days. It is a must learn technology for

@@ -2,7 +2,7 @@
 layout: post
 title:  "Getting started with Jekyll"
 date:   2017-02-23 22:21:57 +1100
-category: BuildTools
+categories: BuildTools
 ---
 
 In order to install jekyll, we need to ruby gems.
