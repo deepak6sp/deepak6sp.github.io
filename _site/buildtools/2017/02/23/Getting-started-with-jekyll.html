@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <link rel="stylesheet" href="/assets/css/main.css">
+
+<body>
+  <header>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Deepak Prakash</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          
+            <li><a href="/about">About</a></li>
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <div class="content">
+    <div class="container">
+      <div class="post">
+  <h1 class="postTitle">Getting started with Jekyll</h1>
+  <p class="text-success">
+    23 Feb 2017
+  </p>
+  </br>
+  <p>In order to install jekyll, we need to ruby gems.
+You can install gems from here
+https://rubygems.org/pages/download</p>
+
+<p>After installing, make sure gems is working by typing <code> gems -v </code></p>
+
+<p>Now in the  terminal, type</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="n">install</span> <span class="n">jekyll</span> <span class="n">bundler</span></code></pre></figure>
+
+<p>Again, to make to jekyll is installed , type <code> jekyll -v </code></p>
+
+<p>After verifying everything is installed, lets start to create a basic blog by typing</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">jekyll</span> <span class="kp">new</span> <span class="n">my</span><span class="o">-</span><span class="n">blog</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">my-blog</code> : is the name of the folder which jekyll creates. This is the root folder of our blog.</p>
+
+<p>Now, change directory to my-blog</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">cd</span> <span class="n">my</span><span class="o">-</span><span class="n">blog</span></code></pre></figure>
+
+<p>and in the terminal type</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">jekyll</span> <span class="n">serve</span></code></pre></figure>
+
+<p>This will start local server. By default, Jekyll will use  <code class="highlighter-rouge">http://127.0.0.1:4000/</code>. Now type this url in the browser and this should display a basic blog site.</p>
+
+<blockquote>
+  <p>Jekyll create <em>_site</em> folder. This is the compiled folder from where Jekyll serves all the pages, styles and scripts.</p>
+</blockquote>
+
+<p>Thus, you have a blog up and running in few minutes.</p>
+
+</div>
+
+    </div>
+  </div><!-- end .content -->
+  
+  <footer>
+  <hr/>
+  <div class="container-fluid container">
+    <p class="pull-left">Written with ♡ </p>
+    <p class="pull-right">© 2017 Deepak Prakash</p>
+  </div>
+</footer>
+
+  <!-- Add jQuery and other scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <script>window.jQuery || document.write('<script src=""><\/script>')</script> -->
+
+</body>
+</html>

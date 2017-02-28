@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <link rel="stylesheet" href="/assets/css/main.css">
+
+<body>
+  <header>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Deepak Prakash</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          
+            <li><a href="/about">About</a></li>
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <div class="content">
+    <div class="container">
+      <div class="post">
+  <h1 class="postTitle">How to wait for promises during unit test</h1>
+  <p class="text-success">
+    26 Feb 2017
+  </p>
+  </br>
+  <p>Image you are testing a Javascript function which calls a url and, that url returns a promise with ‘SOME VALUE’.</p>
+
+<p>Lets start writing test. I will be using jasmine to write my tests.
+Firstly, we will write test to make sure the function has been defined.
+A simple test could be,</p>
+<pre>
+import { TestClass }  from ‘test-function.js’;
+describe ( ‘check function’ , () =&gt; {
+  it(‘has been defined, () =&gt;  {
+    expect(TestClass.promiseFunction). toBeDefined();
+  }
+});
+</pre>
+
+<p>This will fail because, we have not initiated the class instance.
+So, we will do this in beforeAll()</p>
+
+<pre>
+import { TestClass }  from ‘test-function.js’;
+describe ( ‘check promiseFunction()’ , () =&gt; {
+  let testClass;
+  beforeAll(() =&gt; {
+    testClass = new TestClass();
+  });
+
+  it(‘has been defined, () =&gt;  {
+    expect(testClass.promiseFunction).toBeDefined();
+  }
+});
+</pre>
+
+<p>Next, we will call the url using javascript fetch API. But this time we assume to initiate the class instance when promise is returned. We will also write test to check if promise is returned.</p>
+
+<pre>
+import { TestClass }  from ‘test-function.js’;
+describe ('check promiseFunction()', () =&gt; {
+  let testClass;
+  let Promise;
+  beforeAll(() =&gt; {
+    testClass = new TestClass();
+    Promise =  fetch(url)
+      .then(response =&gt; response.json())
+      .then(value =&gt; {
+        testClass = new TestClass(value);
+      });
+  });
+
+  it('has been defined', () =&gt;  {
+    expect(testClass.promiseFunction). toBeDefined();
+  }
+
+  it('returns a promise', () =&gt; {
+    expect(returnPromise).toEqual(jasmine.any(Promise));
+  });
+
+  it('is returning correct value' , () =&gt; {
+    expect(testClass.promiseFunction).toEqual(SOME VALUE);
+  });
+});
+</pre>
+<p>When you run test, the first and second test case will pass, however,
+the third test case will fail.</p>
+
+<p><b>What went wrong?</b><br />
+The third test was executed before the promise was actually returned. So, how to fix it.
+The solution is we need to wait for the promise to return before executing the second test.</p>
+<pre>
+beforeEach(done =&gt; {
+  returnPromise.then(() =&gt; {
+    done();
+  });
+});
+</pre>
+<p>So , the test looks as below</p>
+<pre>
+import { TestClass }  from ‘test-function.js’;
+describe ( ‘check promiseFunction()’ , () =&gt; {
+  let testClass;
+  let Promise;
+  beforeAll(() =&gt; {
+    testClass = new TestClass();
+    Promise =  fetch(url)
+    .then(response =&gt; response.json())
+    .then(value = {
+      testClass = new TestClass(value);
+    });
+  });
+
+  it('has been defined', () =&gt;  {
+    expect(testClass.promiseFunction). toBeDefined();
+  });
+
+  it('returns a promise', () =&gt; {
+    expect(returnPromise).toEqual(jasmine.any(Promise));
+  });
+
+  describe('on successful promise return : ', () =&gt; {
+    beforeEach(done =&gt; {
+      returnPromise.then(() =&gt; {
+      done();
+    });
+
+    it('is returning correct value', () =&gt; {
+      expect(testClass.promiseFunction).toEqual(SOME VALUE);
+    });
+  });
+});
+</pre>
+
+<p>Now, all the test cases should pass.</p>
+
+</div>
+
+    </div>
+  </div><!-- end .content -->
+  
+  <footer>
+  <hr/>
+  <div class="container-fluid container">
+    <p class="pull-left">Written with ♡ </p>
+    <p class="pull-right">© 2017 Deepak Prakash</p>
+  </div>
+</footer>
+
+  <!-- Add jQuery and other scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <script>window.jQuery || document.write('<script src=""><\/script>')</script> -->
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <link rel="stylesheet" href="/assets/css/main.css">
+
+<body>
+  <header>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Deepak Prakash</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          
+            <li><a href="/about">About</a></li>
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <div class="content">
+    <div class="container">
+      <div class="post">
+  <h1 class="postTitle">Using Bootstrap with Jekyll</h1>
+  <p class="text-success">
+    23 Feb 2017
+  </p>
+  </br>
+  <p>Before starting with this section, if you would like to know ‘How to get started with
+Jekyll’, click <a href="/buildtools/2017/02/23/Getting-started-with-jekyll.html">here</a>.</p>
+
+<p>To use bootstrap or any other front end framework,  we need to have directory structure as shown here
+<code class="highlighter-rouge">https://jekyllrb.com/docs/structure/</code></p>
+
+<p>So, we will add folders <code class="highlighter-rouge">_includes</code> and <code class="highlighter-rouge">_layouts</code> to root folder,
+which is enough to get started with bootstrap framework.</p>
+
+<p>Under <code class="highlighter-rouge">_includes</code> folder, create new file <code class="highlighter-rouge">scripts.html</code>. We shall use Jquery and Bootstrap cdn.
+So add these scripts</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&lt;</span><span class="n">script</span> <span class="n">src</span><span class="o">=</span><span class="s2">"http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"</span><span class="o">&gt;&lt;</span><span class="sr">/script&gt;
+&lt;script src="https:/</span><span class="o">/</span><span class="n">maxcdn</span><span class="p">.</span><span class="nf">bootstrapcdn</span><span class="p">.</span><span class="nf">com</span><span class="o">/</span><span class="n">bootstrap</span><span class="o">/</span><span class="mi">3</span><span class="o">.</span><span class="mi">3</span><span class="o">.</span><span class="mi">7</span><span class="o">/</span><span class="n">js</span><span class="o">/</span><span class="n">bootstrap</span><span class="p">.</span><span class="nf">min</span><span class="p">.</span><span class="nf">js</span><span class="s2">"&gt;&lt;/script&gt;</span></code></pre></figure>
+
+<p>Under <code class="highlighter-rouge">_layouts</code>, create new file <code class="highlighter-rouge">default.html</code> and add the following content.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&lt;!</span><span class="no">DOCTYPE</span> <span class="n">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">html</span> <span class="k">class</span><span class="o">=</span><span class="s2">"no-js"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">link</span> <span class="n">rel</span><span class="o">=</span><span class="s2">"stylesheet"</span> <span class="n">href</span><span class="o">=</span><span class="s2">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="sr">/head&gt;
+&lt;body&gt;
+  &lt;div class="content"&gt;
+    &lt;div class="container"&gt;
+      {{ content }}
+    &lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="sr">/div&gt;
+   {% include scripts.html %}
+&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="sr">/html&gt;</span></code></pre></figure>
+
+<p>And finally, in <code class="highlighter-rouge">index.html</code> under root folder, change
+<code>layout: home</code> to <code>layout:default</code></p>
+
+<p>To test bootstrap framework is working, under <code class="highlighter-rouge">_includes</code>, create another file <code class="highlighter-rouge">header.html</code> and
+add the code below</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&lt;</span><span class="n">header</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">nav</span> <span class="k">class</span><span class="o">=</span><span class="s2">"navbar navbar-default"</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">div</span> <span class="k">class</span><span class="o">=</span><span class="s2">"container-fluid container"</span><span class="o">&gt;</span>
+      <span class="o">&lt;!--</span> <span class="no">Brand</span> <span class="n">and</span> <span class="n">toggle</span> <span class="n">get</span> <span class="n">grouped</span> <span class="k">for</span> <span class="n">better</span> <span class="n">mobile</span> <span class="nb">display</span> <span class="o">--&gt;</span>
+      <span class="o">&lt;</span><span class="n">div</span> <span class="k">class</span><span class="o">=</span><span class="s2">"navbar-header"</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">button</span> <span class="n">type</span><span class="o">=</span><span class="s2">"button"</span> <span class="k">class</span><span class="o">=</span><span class="s2">"navbar-toggle collapsed"</span> <span class="n">data</span><span class="o">-</span><span class="n">toggle</span><span class="o">=</span><span class="s2">"collapse"</span> <span class="n">data</span><span class="o">-</span><span class="n">target</span><span class="o">=</span><span class="s2">"#bs-example-navbar-collapse-1"</span> <span class="n">aria</span><span class="o">-</span><span class="n">expanded</span><span class="o">=</span><span class="s2">"false"</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">span</span> <span class="k">class</span><span class="o">=</span><span class="s2">"sr-only"</span><span class="o">&gt;</span><span class="no">Toggle</span> <span class="n">navigation</span><span class="o">&lt;</span><span class="sr">/span&gt;
+          &lt;span class="icon-bar"&gt;&lt;/s</span><span class="n">pan</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">span</span> <span class="k">class</span><span class="o">=</span><span class="s2">"icon-bar"</span><span class="o">&gt;&lt;</span><span class="sr">/span&gt;
+          &lt;span class="icon-bar"&gt;&lt;/s</span><span class="n">pan</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="sr">/button&gt;
+        &lt;a class="navbar-brand" href="/</span><span class="s2">"&gt;Deepak Prakash&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;!-- Collect the nav links, forms, and other content for toggling --&gt;
+      &lt;div class="</span><span class="n">collapse</span> <span class="n">navbar</span><span class="o">-</span><span class="n">collapse</span><span class="s2">" id="</span><span class="n">bs</span><span class="o">-</span><span class="n">example</span><span class="o">-</span><span class="n">navbar</span><span class="o">-</span><span class="n">collapse</span><span class="o">-</span><span class="mi">1</span><span class="s2">"&gt;
+        &lt;ul class="</span><span class="n">nav</span> <span class="n">navbar</span><span class="o">-</span><span class="n">nav</span> <span class="n">navbar</span><span class="o">-</span><span class="n">right</span><span class="s2">"&gt;
+		&lt;li&gt;&lt;a href=“/home“&gt;Home&lt;/a&gt;&lt;/li&gt;
+            	&lt;li&gt;&lt;a href=“/about“&gt;About&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=“/contact“&gt;Contact&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;&lt;!-- /.navbar-collapse --&gt;
+    &lt;/div&gt;&lt;!-- /.container-fluid --&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;</span></code></pre></figure>
+
+<p>Now, in the body section of <code class="highlighter-rouge">default.html</code>, add</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> <span class="p">{</span><span class="sx">% include </span><span class="n">header</span><span class="p">.</span><span class="nf">html</span>  <span class="sx">%}</span></code></pre></figure>
+
+<p>In your terminal, run</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">jekyll</span> <span class="n">serve</span></code></pre></figure>
+
+<p>This will serve up new blog with bootstrap framework. However, this will not show up the posts.</p>
+
+<p>So, just add the code below in <code class="highlighter-rouge">index.html</code>,</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&lt;</span><span class="n">ul</span><span class="o">&gt;</span>
+   <span class="p">{</span><span class="sx">% for </span><span class="n">post</span> <span class="k">in</span> <span class="n">site</span><span class="p">.</span><span class="nf">posts</span> <span class="sx">%}
+    &lt;li&gt;
+      &lt;a href=""&gt;&lt;/a&gt;
+    &lt;/li&gt;
+   {% endfor %}</span>
+<span class="o">&lt;</span><span class="sr">/ul&gt;</span></code></pre></figure>
+
+<p>Now, you have successfully running <strong>Bootstrap enabled Jekyll blog</strong>.</p>
+
+</div>
+
+    </div>
+  </div><!-- end .content -->
+  
+  <footer>
+  <hr/>
+  <div class="container-fluid container">
+    <p class="pull-left">Written with ♡ </p>
+    <p class="pull-right">© 2017 Deepak Prakash</p>
+  </div>
+</footer>
+
+  <!-- Add jQuery and other scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <script>window.jQuery || document.write('<script src=""><\/script>')</script> -->
+
+</body>
+</html>

@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-02-28T21:01:10+11:00</updated><id>http://localhost:4000/</id><title type="html">Deepak Prakash</title><entry><title type="html">How to wait for promises during unit test</title><link href="http://localhost:4000/testing/2017/02/26/Unit-Testing-Promises.html" rel="alternate" type="text/html" title="How to wait for promises during unit test" /><published>2017-02-26T22:21:57+11:00</published><updated>2017-02-26T22:21:57+11:00</updated><id>http://localhost:4000/testing/2017/02/26/Unit-Testing-Promises</id><content type="html" xml:base="http://localhost:4000/testing/2017/02/26/Unit-Testing-Promises.html">&lt;p&gt;Image you are testing a Javascript function which calls a url and, that url returns a promise with ‘SOME VALUE’.&lt;/p&gt;
+
+&lt;p&gt;Lets start writing test. I will be using jasmine to write my tests.
+Firstly, we will write test to make sure the function has been defined.
+A simple test could be,&lt;/p&gt;
+&lt;pre&gt;
+import { TestClass }  from ‘test-function.js’;
+describe ( ‘check function’ , () =&amp;gt; {
+  it(‘has been defined, () =&amp;gt;  {
+    expect(TestClass.promiseFunction). toBeDefined();
+  }
+});
+&lt;/pre&gt;
+
+&lt;p&gt;This will fail because, we have not initiated the class instance.
+So, we will do this in beforeAll()&lt;/p&gt;
+
+&lt;pre&gt;
+import { TestClass }  from ‘test-function.js’;
+describe ( ‘check promiseFunction()’ , () =&amp;gt; {
+  let testClass;
+  beforeAll(() =&amp;gt; {
+    testClass = new TestClass();
+  });
+
+  it(‘has been defined, () =&amp;gt;  {
+    expect(testClass.promiseFunction).toBeDefined();
+  }
+});
+&lt;/pre&gt;
+
+&lt;p&gt;Next, we will call the url using javascript fetch API. But this time we assume to initiate the class instance when promise is returned. We will also write test to check if promise is returned.&lt;/p&gt;
+
+&lt;pre&gt;
+import { TestClass }  from ‘test-function.js’;
+describe ('check promiseFunction()', () =&amp;gt; {
+  let testClass;
+  let Promise;
+  beforeAll(() =&amp;gt; {
+    testClass = new TestClass();
+    Promise =  fetch(url)
+      .then(response =&amp;gt; response.json())
+      .then(value =&amp;gt; {
+        testClass = new TestClass(value);
+      });
+  });
+
+  it('has been defined', () =&amp;gt;  {
+    expect(testClass.promiseFunction). toBeDefined();
+  }
+
+  it('returns a promise', () =&amp;gt; {
+    expect(returnPromise).toEqual(jasmine.any(Promise));
+  });
+
+  it('is returning correct value' , () =&amp;gt; {
+    expect(testClass.promiseFunction).toEqual(SOME VALUE);
+  });
+});
+&lt;/pre&gt;
+&lt;p&gt;When you run test, the first and second test case will pass, however,
+the third test case will fail.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;What went wrong?&lt;/b&gt;&lt;br /&gt;
+The third test was executed before the promise was actually returned. So, how to fix it.
+The solution is we need to wait for the promise to return before executing the second test.&lt;/p&gt;
+&lt;pre&gt;
+beforeEach(done =&amp;gt; {
+  returnPromise.then(() =&amp;gt; {
+    done();
+  });
+});
+&lt;/pre&gt;
+&lt;p&gt;So , the test looks as below&lt;/p&gt;
+&lt;pre&gt;
+import { TestClass }  from ‘test-function.js’;
+describe ( ‘check promiseFunction()’ , () =&amp;gt; {
+  let testClass;
+  let Promise;
+  beforeAll(() =&amp;gt; {
+    testClass = new TestClass();
+    Promise =  fetch(url)
+    .then(response =&amp;gt; response.json())
+    .then(value = {
+      testClass = new TestClass(value);
+    });
+  });
+
+  it('has been defined', () =&amp;gt;  {
+    expect(testClass.promiseFunction). toBeDefined();
+  });
+
+  it('returns a promise', () =&amp;gt; {
+    expect(returnPromise).toEqual(jasmine.any(Promise));
+  });
+
+  describe('on successful promise return : ', () =&amp;gt; {
+    beforeEach(done =&amp;gt; {
+      returnPromise.then(() =&amp;gt; {
+      done();
+    });
+
+    it('is returning correct value', () =&amp;gt; {
+      expect(testClass.promiseFunction).toEqual(SOME VALUE);
+    });
+  });
+});
+&lt;/pre&gt;
+
+&lt;p&gt;Now, all the test cases should pass.&lt;/p&gt;</content><author><name></name></author><summary type="html">Image you are testing a Javascript function which calls a url and, that url returns a promise with ‘SOME VALUE’.</summary></entry><entry><title type="html">Using Bootstrap with Jekyll</title><link href="http://localhost:4000/buildtools/2017/02/23/Using-Bootstrap-with-jekyll.html" rel="alternate" type="text/html" title="Using Bootstrap with Jekyll" /><published>2017-02-23T22:21:57+11:00</published><updated>2017-02-23T22:21:57+11:00</updated><id>http://localhost:4000/buildtools/2017/02/23/Using-Bootstrap-with-jekyll</id><content type="html" xml:base="http://localhost:4000/buildtools/2017/02/23/Using-Bootstrap-with-jekyll.html">&lt;p&gt;Before starting with this section, if you would like to know ‘How to get started with
+Jekyll’, click &lt;a href=&quot;/buildtools/2017/02/23/Getting-started-with-jekyll.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To use bootstrap or any other front end framework,  we need to have directory structure as shown here
+&lt;code class=&quot;highlighter-rouge&quot;&gt;https://jekyllrb.com/docs/structure/&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;So, we will add folders &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts&lt;/code&gt; to root folder,
+which is enough to get started with bootstrap framework.&lt;/p&gt;
+
+&lt;p&gt;Under &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes&lt;/code&gt; folder, create new file &lt;code class=&quot;highlighter-rouge&quot;&gt;scripts.html&lt;/code&gt;. We shall use Jquery and Bootstrap cdn.
+So add these scripts&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/script&amp;gt;
+&amp;lt;script src=&quot;https:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;maxcdn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;bootstrapcdn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bootstrap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bootstrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Under &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts&lt;/code&gt;, create new file &lt;code class=&quot;highlighter-rouge&quot;&gt;default.html&lt;/code&gt; and add the following content.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;!&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;DOCTYPE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;no-js&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+  &amp;lt;div class=&quot;content&quot;&amp;gt;
+    &amp;lt;div class=&quot;container&quot;&amp;gt;
+      {{ content }}
+    &amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&amp;gt;
+   {% include scripts.html %}
+&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;And finally, in &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt; under root folder, change
+&lt;code&gt;layout: home&lt;/code&gt; to &lt;code&gt;layout:default&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;To test bootstrap framework is working, under &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes&lt;/code&gt;, create another file &lt;code class=&quot;highlighter-rouge&quot;&gt;header.html&lt;/code&gt; and
+add the code below&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nav&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;navbar navbar-default&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;container-fluid container&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;!--&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Brand&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;toggle&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grouped&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;better&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mobile&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;navbar-header&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;navbar-toggle collapsed&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;toggle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;collapse&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;#bs-example-navbar-collapse-1&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aria&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expanded&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;false&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;span&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;sr-only&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Toggle&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;navigation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/span&amp;gt;
+          &amp;lt;span class=&quot;icon-bar&quot;&amp;gt;&amp;lt;/s&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pan&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;span&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;icon-bar&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/span&amp;gt;
+          &amp;lt;span class=&quot;icon-bar&quot;&amp;gt;&amp;lt;/s&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pan&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/button&amp;gt;
+        &amp;lt;a class=&quot;navbar-brand&quot; href=&quot;/&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;Deepak Prakash&amp;lt;/a&amp;gt;
+      &amp;lt;/div&amp;gt;
+      &amp;lt;!-- Collect the nav links, forms, and other content for toggling --&amp;gt;
+      &amp;lt;div class=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collapse&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;navbar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collapse&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot; id=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;example&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;navbar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collapse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;
+        &amp;lt;ul class=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nav&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;navbar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nav&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;navbar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;
+		&amp;lt;li&amp;gt;&amp;lt;a href=“/home“&amp;gt;Home&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+            	&amp;lt;li&amp;gt;&amp;lt;a href=“/about“&amp;gt;About&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+		&amp;lt;li&amp;gt;&amp;lt;a href=“/contact“&amp;gt;Contact&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+        &amp;lt;/ul&amp;gt;
+      &amp;lt;/div&amp;gt;&amp;lt;!-- /.navbar-collapse --&amp;gt;
+    &amp;lt;/div&amp;gt;&amp;lt;!-- /.container-fluid --&amp;gt;
+  &amp;lt;/nav&amp;gt;
+&amp;lt;/header&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now, in the body section of &lt;code class=&quot;highlighter-rouge&quot;&gt;default.html&lt;/code&gt;, add&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% include &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt;  &lt;span class=&quot;sx&quot;&gt;%}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;In your terminal, run&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;jekyll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serve&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This will serve up new blog with bootstrap framework. However, this will not show up the posts.&lt;/p&gt;
+
+&lt;p&gt;So, just add the code below in &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt;,&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ul&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% for &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;posts&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%}
+    &amp;lt;li&amp;gt;
+      &amp;lt;a href=&quot;&quot;&amp;gt;&amp;lt;/a&amp;gt;
+    &amp;lt;/li&amp;gt;
+   {% endfor %}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/ul&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now, you have successfully running &lt;strong&gt;Bootstrap enabled Jekyll blog&lt;/strong&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">Before starting with this section, if you would like to know ‘How to get started with Jekyll’, click here.</summary></entry><entry><title type="html">Getting started with Jekyll</title><link href="http://localhost:4000/buildtools/2017/02/23/Getting-started-with-jekyll.html" rel="alternate" type="text/html" title="Getting started with Jekyll" /><published>2017-02-23T22:21:57+11:00</published><updated>2017-02-23T22:21:57+11:00</updated><id>http://localhost:4000/buildtools/2017/02/23/Getting-started-with-jekyll</id><content type="html" xml:base="http://localhost:4000/buildtools/2017/02/23/Getting-started-with-jekyll.html">&lt;p&gt;In order to install jekyll, we need to ruby gems.
+You can install gems from here
+https://rubygems.org/pages/download&lt;/p&gt;
+
+&lt;p&gt;After installing, make sure gems is working by typing &lt;code&gt; gems -v &lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now in the  terminal, type&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jekyll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bundler&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Again, to make to jekyll is installed , type &lt;code&gt; jekyll -v &lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;After verifying everything is installed, lets start to create a basic blog by typing&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;jekyll&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;blog&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;my-blog&lt;/code&gt; : is the name of the folder which jekyll creates. This is the root folder of our blog.&lt;/p&gt;
+
+&lt;p&gt;Now, change directory to my-blog&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;blog&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;and in the terminal type&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;jekyll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serve&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This will start local server. By default, Jekyll will use  &lt;code class=&quot;highlighter-rouge&quot;&gt;http://127.0.0.1:4000/&lt;/code&gt;. Now type this url in the browser and this should display a basic blog site.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Jekyll create &lt;em&gt;_site&lt;/em&gt; folder. This is the compiled folder from where Jekyll serves all the pages, styles and scripts.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Thus, you have a blog up and running in few minutes.&lt;/p&gt;</content><author><name></name></author><summary type="html">In order to install jekyll, we need to ruby gems. You can install gems from here https://rubygems.org/pages/download</summary></entry><entry><title type="html">Webpack Basics</title><link href="http://localhost:4000/buildtools/2017/02/22/webpack-basics.html" rel="alternate" type="text/html" title="Webpack Basics" /><published>2017-02-22T22:21:57+11:00</published><updated>2017-02-22T22:21:57+11:00</updated><id>http://localhost:4000/buildtools/2017/02/22/webpack-basics</id><content type="html" xml:base="http://localhost:4000/buildtools/2017/02/22/webpack-basics.html">&lt;p&gt;Build tools are becoming very popular these days. It is a must learn technology for
+any web developer these days. Although, there are so many build tools such as gulp and grunt,
+webpack is at the top.&lt;/p&gt;
+
+&lt;p&gt;Lets start.
+Yarn is my favourite these days as Yarn is faster than npm and also takes offline approach,
+which means, you don’t need internet connectivity to install packages once installed.&lt;/p&gt;
+
+&lt;p&gt;Learn more about &lt;a href=&quot;https://yarnpkg.com/en/&quot;&gt;yarn here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;On command line, do&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;yarn&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;init&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;yarn&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dev&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webpack&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webpack&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Create a filename &lt;strong&gt;webpack.config.js&lt;/strong&gt; at
+the root of the project.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;touch&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webpack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;js&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;and lets write basic webpack configuration. &lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;entry:  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;./app/main.js&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;output: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;path: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__dirname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/public&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;filename: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;bundle.js&quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;entry&lt;/code&gt; : is the app entry point.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;__dirname&lt;/code&gt; : gives us current folder path.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;output - path&lt;/code&gt;: is the output folder&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;output - filename&lt;/code&gt; : is the name of the file. In our case, it is bundle.js&lt;/p&gt;
+
+&lt;p&gt;So in index.html , we can just add a script tag&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;bundle.js&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;How to run webpack-dev-server?&lt;/p&gt;
+
+&lt;p&gt;You could run web pack-dev-server from command line but I prefer to run through
+scripts in package.json.
+So, in package.json file, under scripts&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;start&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;webpack --progress --colors&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;server&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;webpack-dev-server --progress --colors  --content-base ./ —-port 3000 &quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;–content-base&lt;/strong&gt; is where html is served from, ‘./’ represents root folder and &lt;br /&gt;
+&lt;strong&gt;–port&lt;/strong&gt; is which port to use, which is 3000 in this case&lt;/p&gt;
+
+&lt;p&gt;On the command line,&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;yarn&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Webpack-dev-server watches for any file changes and serves bundle.js from the
+memory.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Webpack-dev-server will not generate file in the output folder.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;However, run&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;yarn&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;will start webpack and generates bundle.js file in the output folder.&lt;/p&gt;
+
+&lt;p&gt;Now, go to &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:3000/&lt;/code&gt; and see the working page.&lt;/p&gt;
+
+&lt;p&gt;Passing –watch argument watches file changes.
+So, in package.json file, under scripts&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;start&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;webpack --progress --colors&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;watch&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;webpack --progress --colors --watch&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;server&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;webpack-dev-server --progress --colors  --content-base ./ —-port 3000 &quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name></name></author><summary type="html">Build tools are becoming very popular these days. It is a must learn technology for any web developer these days. Although, there are so many build tools such as gulp and grunt, webpack is at the top.</summary></entry><entry><title type="html">Show git branch on the bash command prompt</title><link href="http://localhost:4000/git/2017/01/24/Show-git-branch-on-bash-command-prompt.html" rel="alternate" type="text/html" title="Show git branch on the bash command prompt" /><published>2017-01-24T22:21:57+11:00</published><updated>2017-01-24T22:21:57+11:00</updated><id>http://localhost:4000/git/2017/01/24/Show-git-branch-on-bash-command-prompt</id><content type="html" xml:base="http://localhost:4000/git/2017/01/24/Show-git-branch-on-bash-command-prompt.html">&lt;p&gt;By default, command prompt does not display git branch names. You would generally see this.&lt;/p&gt;
+
+&lt;pre&gt;deepak@Deepaks-MacBook-Pro githubBlog $&lt;/pre&gt;
+
+&lt;p&gt;In the terminal, type&lt;/p&gt;
+&lt;pre&gt;
+touch ~/.bash_profile
+vi ~/.bash_profile
+&lt;/pre&gt;
+
+&lt;p&gt;Now, in .bash_profile, copy the code below&lt;/p&gt;
+&lt;pre&gt;
+parse_git_branch() {
+  git branch 2&amp;gt; /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1=&quot;\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ &quot;
+&lt;/pre&gt;
+
+&lt;p&gt;Reopen terminal&lt;/p&gt;
+
+&lt;pre&gt;deepak@Deepaks-MacBook-Pro githubBlog (master) $&lt;/pre&gt;</content><author><name></name></author><summary type="html">By default, command prompt does not display git branch names. You would generally see this.</summary></entry></feed>

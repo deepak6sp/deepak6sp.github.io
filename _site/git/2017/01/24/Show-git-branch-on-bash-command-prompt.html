@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <link rel="stylesheet" href="/assets/css/main.css">
+
+<body>
+  <header>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Deepak Prakash</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          
+            <li><a href="/about">About</a></li>
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+</header>
+
+  <div class="content">
+    <div class="container">
+      <div class="post">
+  <h1 class="postTitle">Show git branch on the bash command prompt</h1>
+  <p class="text-success">
+    24 Jan 2017
+  </p>
+  </br>
+  <p>By default, command prompt does not display git branch names. You would generally see this.</p>
+
+<pre>deepak@Deepaks-MacBook-Pro githubBlog $</pre>
+
+<p>In the terminal, type</p>
+<pre>
+touch ~/.bash_profile
+vi ~/.bash_profile
+</pre>
+
+<p>Now, in .bash_profile, copy the code below</p>
+<pre>
+parse_git_branch() {
+  git branch 2&gt; /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+</pre>
+
+<p>Reopen terminal</p>
+
+<pre>deepak@Deepaks-MacBook-Pro githubBlog (master) $</pre>
+
+</div>
+
+    </div>
+  </div><!-- end .content -->
+  
+  <footer>
+  <hr/>
+  <div class="container-fluid container">
+    <p class="pull-left">Written with ♡ </p>
+    <p class="pull-right">© 2017 Deepak Prakash</p>
+  </div>
+</footer>
+
+  <!-- Add jQuery and other scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <script>window.jQuery || document.write('<script src=""><\/script>')</script> -->
+
+</body>
+</html>
