@@ -23,7 +23,7 @@ title: Deepak Prakash
   <div class="col-sm-3 col-md-2">
     <h3>Categories</h3>
     {% for category in site.categories %}
-      {% assign each_category = category[0] | downcase %}
-      <a href="/categories/{{ each_category }}.html">{{ category[0] | capitalize }}</a><br />
+      {% assign category_name = category[0] | downcase %}
+      <a href="/categories/{{ category_name }}.html">{{ category[0] | capitalize }}</a><br />
     {% endfor %}
   </div>
