@@ -5,7 +5,7 @@ date:   2017-02-22 22:21:57 +1100
 categories: BuildTools
 ---
 
-Build tools are growing and becoming a must learn technology for
+Build tools usage is growing and becoming a must learn technology for
 any web developer these days. Although, there are so many build tools such as gulp and grunt,
 webpack is at the top.
 
