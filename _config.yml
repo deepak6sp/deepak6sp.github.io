@@ -30,6 +30,7 @@ markdown: kramdown
 theme: minima
 gems:
   - jekyll-feed
+  - jekyll-paginate
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -37,3 +38,6 @@ exclude:
 navigation:
  - title: About
    url: /about
+
+paginate: 5
+paginate_path: "/page:num/"

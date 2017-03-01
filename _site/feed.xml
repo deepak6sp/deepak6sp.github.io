@@ -1,4 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-02-28T21:01:10+11:00</updated><id>http://localhost:4000/</id><title type="html">Deepak Prakash</title><entry><title type="html">How to wait for promises during unit test</title><link href="http://localhost:4000/testing/2017/02/26/Unit-Testing-Promises.html" rel="alternate" type="text/html" title="How to wait for promises during unit test" /><published>2017-02-26T22:21:57+11:00</published><updated>2017-02-26T22:21:57+11:00</updated><id>http://localhost:4000/testing/2017/02/26/Unit-Testing-Promises</id><content type="html" xml:base="http://localhost:4000/testing/2017/02/26/Unit-Testing-Promises.html">&lt;p&gt;Image you are testing a Javascript function which calls a url and, that url returns a promise with ‘SOME VALUE’.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-03-01T22:23:40+11:00</updated><id>http://localhost:4000/</id><title type="html">Deepak Prakash</title><entry><title type="html">Mock date with MomentJS - Jasmine Unit Test</title><link href="http://localhost:4000/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test.html" rel="alternate" type="text/html" title="Mock date with MomentJS - Jasmine Unit Test" /><published>2017-03-01T10:21:57+11:00</published><updated>2017-03-01T10:21:57+11:00</updated><id>http://localhost:4000/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test</id><content type="html" xml:base="http://localhost:4000/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test.html">&lt;p&gt;MomentJS (https://momentjs.com/) is a great library to use for dates and time.
+When doing unit test with Jasmine, it is east to make jasmine to mock date and
+time with just 2 lines of code.&lt;/p&gt;
+
+&lt;pre&gt;
+beforeEach(() =&amp;gt; {
+ const mockedDateAndTime  = ‘2017-03-02 00:00:00’;
+ const today = moment(mockedDateAndTime).toDate();
+ jasmine.clock().mockDate(today);
+});
+&lt;/pre&gt;
+
+&lt;p&gt;Now, jasmine uses the mockedDateAndTime to run all the tests, rather than
+today’s current date and time.&lt;/p&gt;</content><author><name></name></author><summary type="html">MomentJS (https://momentjs.com/) is a great library to use for dates and time. When doing unit test with Jasmine, it is east to make jasmine to mock date and time with just 2 lines of code.</summary></entry><entry><title type="html">How to wait for promises during unit test</title><link href="http://localhost:4000/testing/2017/02/26/Unit-Testing-Promises.html" rel="alternate" type="text/html" title="How to wait for promises during unit test" /><published>2017-02-26T22:21:57+11:00</published><updated>2017-02-26T22:21:57+11:00</updated><id>http://localhost:4000/testing/2017/02/26/Unit-Testing-Promises</id><content type="html" xml:base="http://localhost:4000/testing/2017/02/26/Unit-Testing-Promises.html">&lt;p&gt;Image you are testing a Javascript function which calls a url and, that url returns a promise with ‘SOME VALUE’.&lt;/p&gt;
 
 &lt;p&gt;Lets start writing test. I will be using jasmine to write my tests.
 Firstly, we will write test to make sure the function has been defined.

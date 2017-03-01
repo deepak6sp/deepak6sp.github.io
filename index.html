@@ -7,7 +7,7 @@ title: Deepak Prakash
 ---
 <div class="row">
   <div class="col-sm-9 col-md-10">
-    {% for post in site.posts %}
+    {% for post in paginator.posts %}
     <div class="panel panel-default">
       <div class="panel-body">
         <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
@@ -27,3 +27,6 @@ title: Deepak Prakash
       <a href="/categories/{{ category_name }}.html">{{ category[0] | capitalize }}</a><br />
     {% endfor %}
   </div>
+</div>
+
+{% include pagination.html %}

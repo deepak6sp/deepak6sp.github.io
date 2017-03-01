@@ -1,0 +1,38 @@
+<!-- Pagination links -->
+<div class="row">
+  <div class="col-sm-9 text-center">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        {% if paginator.previous_page %}
+          <li class="page-item">
+            <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <span class="previous">Previous</span>
+          </li>
+        {% endif %}
+        {% for page in (1..paginator.total_pages) %}
+          {% if page == 1 %}
+            <li class="page-item">
+              <a href="/">{{page}}</a>
+            </li>
+          {% else %}
+            <li class="page-item">
+              <a href="/page{{page}}">{{page}}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+        {% if paginator.next_page %}
+          <li class="page-item">
+            <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <span class="next ">Next</span>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</div>

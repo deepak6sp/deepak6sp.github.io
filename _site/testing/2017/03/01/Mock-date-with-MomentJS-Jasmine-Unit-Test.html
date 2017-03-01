@@ -38,23 +38,28 @@
 
   <div class="content">
     <div class="container">
-      <h2>Posts related to: Git</h2>
+      <div class="post">
+  <h1 class="postTitle">Mock date with MomentJS - Jasmine Unit Test</h1>
+  <p class="text-success">
+    01 Mar 2017
+  </p>
+  </br>
+  <p>MomentJS (https://momentjs.com/) is a great library to use for dates and time.
+When doing unit test with Jasmine, it is east to make jasmine to mock date and
+time with just 2 lines of code.</p>
 
+<pre>
+beforeEach(() =&gt; {
+ const mockedDateAndTime  = ‘2017-03-02 00:00:00’;
+ const today = moment(mockedDateAndTime).toDate();
+ jasmine.clock().mockDate(today);
+});
+</pre>
 
+<p>Now, jasmine uses the mockedDateAndTime to run all the tests, rather than
+today’s current date and time.</p>
 
-
-<div class="post-preview">
-    <a href="/git/2017/01/24/Show-git-branch-on-bash-command-prompt.html">
-        <h2 class="post-title">
-            Show git branch on the bash command prompt
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-      Posted on 24 Jan 2017
-    </p>
 </div>
-
 
     </div>
   </div><!-- end .content -->
