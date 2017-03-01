@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Webpack Basics"
+title:  "Webpack Basics (With Yarn)"
 date:   2017-02-22 22:21:57 +1100
 categories: BuildTools
 ---
