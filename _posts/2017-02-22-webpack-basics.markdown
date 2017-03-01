@@ -48,9 +48,9 @@ module.exports = {
 `output - filename` : is the name of the file. In our case, it is bundle.js
 
 So in index.html , we can just add a script tag
-{% highlight ruby %}
+<pre>
 <script type="text/javascript" src="bundle.js"></script>
-{% endhighlight %}
+</pre>
 
 How to run webpack-dev-server?
 
