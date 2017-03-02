@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Mock date with MomentJS - Jasmine Unit Test"
+title:  "Mock date with MomentJS ( Jasmine Unit Test )"
 date:   2017-03-01 10:21:57 +1100
 categories: Testing
 ---
