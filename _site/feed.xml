@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-03-01T22:58:57+11:00</updated><id>http://localhost:4000/</id><title type="html">Deepak Prakash</title><entry><title type="html">Mock date with MomentJS - Jasmine Unit Test</title><link href="http://localhost:4000/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test.html" rel="alternate" type="text/html" title="Mock date with MomentJS - Jasmine Unit Test" /><published>2017-03-01T10:21:57+11:00</published><updated>2017-03-01T10:21:57+11:00</updated><id>http://localhost:4000/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test</id><content type="html" xml:base="http://localhost:4000/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test.html">&lt;p&gt;MomentJS (https://momentjs.com/) is a great library to use for dates and time.
-When doing unit test with Jasmine, it is east to make jasmine to mock date and
-time with just 2 lines of code.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-03-02T20:53:27+11:00</updated><id>http://localhost:4000/</id><title type="html">Deepak Prakash</title><entry><title type="html">Mock date with MomentJS - Jasmine Unit Test</title><link href="http://localhost:4000/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test.html" rel="alternate" type="text/html" title="Mock date with MomentJS - Jasmine Unit Test" /><published>2017-03-01T10:21:57+11:00</published><updated>2017-03-01T10:21:57+11:00</updated><id>http://localhost:4000/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test</id><content type="html" xml:base="http://localhost:4000/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test.html">&lt;p&gt;MomentJS &lt;a href=&quot;https://momentjs.com/&quot; target=&quot;\_blank&quot;&gt;( https://momentjs.com/ )&lt;/a&gt;
+is a great library for parsing, validating, manipulating, and formatting dates.
+When running Jasmine unit tests, it is easy to mock date and time with just 3 lines of code.&lt;/p&gt;
 
 &lt;pre&gt;
 beforeEach(() =&amp;gt; {
@@ -11,16 +11,32 @@ beforeEach(() =&amp;gt; {
 &lt;/pre&gt;
 
 &lt;p&gt;Now, jasmine uses the mockedDateAndTime to run all the tests, rather than
-today’s current date and time.&lt;/p&gt;</content><author><name></name></author><summary type="html">MomentJS (https://momentjs.com/) is a great library to use for dates and time. When doing unit test with Jasmine, it is east to make jasmine to mock date and time with just 2 lines of code.</summary></entry><entry><title type="html">How to wait for promises during unit test</title><link href="http://localhost:4000/testing/2017/02/26/Unit-Testing-Promises.html" rel="alternate" type="text/html" title="How to wait for promises during unit test" /><published>2017-02-26T22:21:57+11:00</published><updated>2017-02-26T22:21:57+11:00</updated><id>http://localhost:4000/testing/2017/02/26/Unit-Testing-Promises</id><content type="html" xml:base="http://localhost:4000/testing/2017/02/26/Unit-Testing-Promises.html">&lt;p&gt;Image you are testing a Javascript function which calls a url and, that url returns a promise with ‘SOME VALUE’.&lt;/p&gt;
+today’s current date and time.&lt;/p&gt;</content><author><name></name></author><summary type="html">MomentJS ( https://momentjs.com/ ) is a great library for parsing, validating, manipulating, and formatting dates. When running Jasmine unit tests, it is easy to mock date and time with just 3 lines of code.</summary></entry><entry><title type="html">How to wait for promises during unit test</title><link href="http://localhost:4000/testing/2017/02/26/Unit-Testing-Promises.html" rel="alternate" type="text/html" title="How to wait for promises during unit test" /><published>2017-02-26T22:21:57+11:00</published><updated>2017-02-26T22:21:57+11:00</updated><id>http://localhost:4000/testing/2017/02/26/Unit-Testing-Promises</id><content type="html" xml:base="http://localhost:4000/testing/2017/02/26/Unit-Testing-Promises.html">&lt;p&gt;Assume you are testing a Javascript method which calls a url and, then that url
+returns a promise with ‘SOME VALUE’.&lt;/p&gt;
 
-&lt;p&gt;Lets start writing test. I will be using jasmine to write my tests.
+&lt;p&gt;&lt;strong&gt;test-function.js&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;
+  export class TestClass {
+    constructor(){
+
+    }
+    testMethod(){
+        var promise = fetch(url)
+                      .then((response) =&amp;gt; {
+                        return response;
+                      });
+    }
+  }
+&lt;/pre&gt;
+
+&lt;p&gt;Lets start writing test. I will be using Jasmine to write unit tests.
 Firstly, we will write test to make sure the function has been defined.
 A simple test could be,&lt;/p&gt;
 &lt;pre&gt;
 import { TestClass }  from ‘test-function.js’;
 describe ( ‘check function’ , () =&amp;gt; {
   it(‘has been defined, () =&amp;gt;  {
-    expect(TestClass.promiseFunction). toBeDefined();
+    expect(TestClass.testMethod).toBeDefined();
   }
 });
 &lt;/pre&gt;
@@ -30,28 +46,27 @@ So, we will do this in beforeAll()&lt;/p&gt;
 
 &lt;pre&gt;
 import { TestClass }  from ‘test-function.js’;
-describe ( ‘check promiseFunction()’ , () =&amp;gt; {
+describe ( ‘check testMethod()’ , () =&amp;gt; {
   let testClass;
   beforeAll(() =&amp;gt; {
     testClass = new TestClass();
   });
 
   it(‘has been defined, () =&amp;gt;  {
-    expect(testClass.promiseFunction).toBeDefined();
+    expect(testClass.testMethod).toBeDefined();
   }
 });
 &lt;/pre&gt;
 
-&lt;p&gt;Next, we will call the url using javascript fetch API. But this time we assume to initiate the class instance when promise is returned. We will also write test to check if promise is returned.&lt;/p&gt;
+&lt;p&gt;Next, we will call the url using javascript fetch API. But, this time we will initiate the class instance when promise is returned. Then, we will also write test to check if promise is returned.&lt;/p&gt;
 
 &lt;pre&gt;
 import { TestClass }  from ‘test-function.js’;
-describe ('check promiseFunction()', () =&amp;gt; {
+describe ('check testMethod()', () =&amp;gt; {
   let testClass;
-  let Promise;
+  let newPromise;
   beforeAll(() =&amp;gt; {
-    testClass = new TestClass();
-    Promise =  fetch(url)
+    newPromise =  fetch(url)
       .then(response =&amp;gt; response.json())
       .then(value =&amp;gt; {
         testClass = new TestClass(value);
@@ -59,15 +74,15 @@ describe ('check promiseFunction()', () =&amp;gt; {
   });
 
   it('has been defined', () =&amp;gt;  {
-    expect(testClass.promiseFunction). toBeDefined();
+    expect(testClass.testMethod).toBeDefined();
   }
 
   it('returns a promise', () =&amp;gt; {
-    expect(returnPromise).toEqual(jasmine.any(Promise));
+    expect(newPromise).toEqual(jasmine.any(Promise));
   });
 
   it('is returning correct value' , () =&amp;gt; {
-    expect(testClass.promiseFunction).toEqual(SOME VALUE);
+    expect(testClass.testMethod).toEqual(SOME VALUE);
   });
 });
 &lt;/pre&gt;
@@ -87,55 +102,60 @@ beforeEach(done =&amp;gt; {
 &lt;p&gt;So , the test looks as below&lt;/p&gt;
 &lt;pre&gt;
 import { TestClass }  from ‘test-function.js’;
-describe ( ‘check promiseFunction()’ , () =&amp;gt; {
+describe ( ‘check testMethod()’ , () =&amp;gt; {
   let testClass;
   let Promise;
   beforeAll(() =&amp;gt; {
-    testClass = new TestClass();
-    Promise =  fetch(url)
+    newPromise =  fetch(url)
     .then(response =&amp;gt; response.json())
-    .then(value = {
+    .then(value =&amp;gt; {
       testClass = new TestClass(value);
     });
   });
 
   it('has been defined', () =&amp;gt;  {
-    expect(testClass.promiseFunction). toBeDefined();
+    expect(testClass.testMethod). toBeDefined();
   });
 
   it('returns a promise', () =&amp;gt; {
-    expect(returnPromise).toEqual(jasmine.any(Promise));
+    expect(newPromise).toEqual(jasmine.any(Promise));
   });
 
   describe('on successful promise return : ', () =&amp;gt; {
     beforeEach(done =&amp;gt; {
-      returnPromise.then(() =&amp;gt; {
+      newPromise.then(() =&amp;gt; {
       done();
     });
 
     it('is returning correct value', () =&amp;gt; {
-      expect(testClass.promiseFunction).toEqual(SOME VALUE);
+      expect(testClass.testMethod).toEqual(SOME VALUE);
     });
   });
 });
 &lt;/pre&gt;
 
-&lt;p&gt;Now, all the test cases should pass.&lt;/p&gt;</content><author><name></name></author><summary type="html">Image you are testing a Javascript function which calls a url and, that url returns a promise with ‘SOME VALUE’.</summary></entry><entry><title type="html">Using Bootstrap with Jekyll</title><link href="http://localhost:4000/buildtools/2017/02/23/Using-Bootstrap-with-jekyll.html" rel="alternate" type="text/html" title="Using Bootstrap with Jekyll" /><published>2017-02-23T22:21:57+11:00</published><updated>2017-02-23T22:21:57+11:00</updated><id>http://localhost:4000/buildtools/2017/02/23/Using-Bootstrap-with-jekyll</id><content type="html" xml:base="http://localhost:4000/buildtools/2017/02/23/Using-Bootstrap-with-jekyll.html">&lt;p&gt;Before starting with this section, if you would like to know ‘How to get started with
+&lt;p&gt;Now, all the test cases should pass.&lt;/p&gt;</content><author><name></name></author><summary type="html">Assume you are testing a Javascript method which calls a url and, then that url returns a promise with ‘SOME VALUE’.</summary></entry><entry><title type="html">Using Bootstrap with Jekyll</title><link href="http://localhost:4000/buildtools/2017/02/23/Using-Bootstrap-with-jekyll.html" rel="alternate" type="text/html" title="Using Bootstrap with Jekyll" /><published>2017-02-23T22:21:57+11:00</published><updated>2017-02-23T22:21:57+11:00</updated><id>http://localhost:4000/buildtools/2017/02/23/Using-Bootstrap-with-jekyll</id><content type="html" xml:base="http://localhost:4000/buildtools/2017/02/23/Using-Bootstrap-with-jekyll.html">&lt;p&gt;Before starting with this section, if you would like to know ‘How to get started with
 Jekyll’, click &lt;a href=&quot;/buildtools/2017/02/23/Getting-started-with-jekyll.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;To use bootstrap or any other front end framework,  we need to have directory structure as shown here
 &lt;code class=&quot;highlighter-rouge&quot;&gt;https://jekyllrb.com/docs/structure/&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;So, we will add folders &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts&lt;/code&gt; to root folder,
-which is enough to get started with bootstrap framework.&lt;/p&gt;
+&lt;p&gt;To start with, in &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt; under root folder, modify the line
+&lt;code&gt;layout: home&lt;/code&gt; to &lt;code&gt;layout:default&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Under &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes&lt;/code&gt; folder, create new file &lt;code class=&quot;highlighter-rouge&quot;&gt;scripts.html&lt;/code&gt;. We shall use Jquery and Bootstrap cdn.
-So add these scripts&lt;/p&gt;
+&lt;p&gt;Then, we will add 2 folders &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts&lt;/code&gt; to root folder.&lt;/p&gt;
+
+&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes&lt;/code&gt; folder, create new file &lt;code class=&quot;highlighter-rouge&quot;&gt;scripts.html&lt;/code&gt;. We will use Jquery and Bootstrap cdn,
+so add these scripts&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;scripts.html&lt;/strong&gt;&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/script&amp;gt;
 &amp;lt;script src=&quot;https:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;maxcdn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;bootstrapcdn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bootstrap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bootstrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Under &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts&lt;/code&gt;, create new file &lt;code class=&quot;highlighter-rouge&quot;&gt;default.html&lt;/code&gt; and add the following content.&lt;/p&gt;
+&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts&lt;/code&gt;, create new file &lt;code class=&quot;highlighter-rouge&quot;&gt;default.html&lt;/code&gt; and add the following content.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;default.html&lt;/strong&gt;&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;!&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;DOCTYPE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;no-js&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
@@ -152,11 +172,14 @@ So add these scripts&lt;/p&gt;
 &amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;And finally, in &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt; under root folder, change
-&lt;code&gt;layout: home&lt;/code&gt; to &lt;code&gt;layout:default&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;And, in the body section of &lt;code class=&quot;highlighter-rouge&quot;&gt;default.html&lt;/code&gt;, add&lt;/p&gt;
 
-&lt;p&gt;To test bootstrap framework is working, under &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes&lt;/code&gt;, create another file &lt;code class=&quot;highlighter-rouge&quot;&gt;header.html&lt;/code&gt; and
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% include &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt;  &lt;span class=&quot;sx&quot;&gt;%}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;To test bootstrap framework is working, in &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes&lt;/code&gt; folder, create another file &lt;code class=&quot;highlighter-rouge&quot;&gt;header.html&lt;/code&gt; and
 add the code below&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;header.html&lt;/strong&gt;&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
   &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nav&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;navbar navbar-default&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
@@ -183,17 +206,15 @@ add the code below&lt;/p&gt;
   &amp;lt;/nav&amp;gt;
 &amp;lt;/header&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Now, in the body section of &lt;code class=&quot;highlighter-rouge&quot;&gt;default.html&lt;/code&gt;, add&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% include &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt;  &lt;span class=&quot;sx&quot;&gt;%}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;In your terminal, run&lt;/p&gt;
+&lt;p&gt;Now, in your terminal, run&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;jekyll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serve&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;This will serve up new blog with bootstrap framework. However, this will not show up the posts.&lt;/p&gt;
 
 &lt;p&gt;So, just add the code below in &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt;,&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;index.html&lt;/strong&gt;&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ul&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% for &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;posts&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%}
@@ -203,19 +224,21 @@ add the code below&lt;/p&gt;
    {% endfor %}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/ul&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Now, you have successfully running &lt;strong&gt;Bootstrap enabled Jekyll blog&lt;/strong&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">Before starting with this section, if you would like to know ‘How to get started with Jekyll’, click here.</summary></entry><entry><title type="html">Getting started with Jekyll</title><link href="http://localhost:4000/buildtools/2017/02/23/Getting-started-with-jekyll.html" rel="alternate" type="text/html" title="Getting started with Jekyll" /><published>2017-02-23T22:21:57+11:00</published><updated>2017-02-23T22:21:57+11:00</updated><id>http://localhost:4000/buildtools/2017/02/23/Getting-started-with-jekyll</id><content type="html" xml:base="http://localhost:4000/buildtools/2017/02/23/Getting-started-with-jekyll.html">&lt;p&gt;In order to install jekyll, we need to ruby gems.
+&lt;p&gt;Now, you have successfully running &lt;strong&gt;Bootstrap enabled Jekyll blog&lt;/strong&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">Before starting with this section, if you would like to know ‘How to get started with Jekyll’, click here.</summary></entry><entry><title type="html">Getting started with Jekyll</title><link href="http://localhost:4000/buildtools/2017/02/23/Getting-started-with-jekyll.html" rel="alternate" type="text/html" title="Getting started with Jekyll" /><published>2017-02-23T22:21:57+11:00</published><updated>2017-02-23T22:21:57+11:00</updated><id>http://localhost:4000/buildtools/2017/02/23/Getting-started-with-jekyll</id><content type="html" xml:base="http://localhost:4000/buildtools/2017/02/23/Getting-started-with-jekyll.html">&lt;p&gt;In order to install jekyll, we need to install ruby gems.
 You can install gems from here
 https://rubygems.org/pages/download&lt;/p&gt;
 
-&lt;p&gt;After installing, make sure gems is working by typing &lt;code&gt; gems -v &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;After installing, make sure gems is working by typing &lt;code&gt; gems -v &lt;/code&gt;
+in the terminal.&lt;/p&gt;
 
 &lt;p&gt;Now in the  terminal, type&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jekyll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bundler&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Again, to make to jekyll is installed , type &lt;code&gt; jekyll -v &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Again, to make sure jekyll is correctly installed , type &lt;code&gt; jekyll -v &lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;After verifying everything is installed, lets start to create a basic blog by typing&lt;/p&gt;
+&lt;p&gt;After verifying everything is installed, lets start to create a basic blog by
+running the command&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;jekyll&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;blog&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
@@ -235,15 +258,15 @@ https://rubygems.org/pages/download&lt;/p&gt;
   &lt;p&gt;Jekyll create &lt;em&gt;_site&lt;/em&gt; folder. This is the compiled folder from where Jekyll serves all the pages, styles and scripts.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Thus, you have a blog up and running in few minutes.&lt;/p&gt;</content><author><name></name></author><summary type="html">In order to install jekyll, we need to ruby gems. You can install gems from here https://rubygems.org/pages/download</summary></entry><entry><title type="html">Webpack Basics ( With Yarn )</title><link href="http://localhost:4000/buildtools/2017/02/22/webpack-basics.html" rel="alternate" type="text/html" title="Webpack Basics ( With Yarn )" /><published>2017-02-22T22:21:57+11:00</published><updated>2017-02-22T22:21:57+11:00</updated><id>http://localhost:4000/buildtools/2017/02/22/webpack-basics</id><content type="html" xml:base="http://localhost:4000/buildtools/2017/02/22/webpack-basics.html">&lt;p&gt;Build tools usage is growing and becoming a must learn technology for
+&lt;p&gt;Thus, you have a blog site up and running in few minutes.&lt;/p&gt;</content><author><name></name></author><summary type="html">In order to install jekyll, we need to install ruby gems. You can install gems from here https://rubygems.org/pages/download</summary></entry><entry><title type="html">Webpack Basics ( With Yarn )</title><link href="http://localhost:4000/buildtools/2017/02/22/webpack-basics.html" rel="alternate" type="text/html" title="Webpack Basics ( With Yarn )" /><published>2017-02-22T22:21:57+11:00</published><updated>2017-02-22T22:21:57+11:00</updated><id>http://localhost:4000/buildtools/2017/02/22/webpack-basics</id><content type="html" xml:base="http://localhost:4000/buildtools/2017/02/22/webpack-basics.html">&lt;p&gt;Build tools usage is growing and becoming a must learn technology for
 any web developer these days. Although, there are so many build tools such as gulp and grunt,
 webpack is at the top.&lt;/p&gt;
 
 &lt;p&gt;Lets start.
-Yarn is my favourite these days as Yarn is faster than npm and also takes offline approach,
+Yarn is my favourite because it is faster than npm and also takes offline approach,
 which means, you don’t need internet connectivity to install packages once installed.&lt;/p&gt;
 
-&lt;p&gt;Learn more about &lt;a href=&quot;https://yarnpkg.com/en/&quot;&gt;yarn here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Learn more about yarn  &lt;a href=&quot;https://yarnpkg.com/en/&quot; target=&quot;\_blank&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;On command line, do&lt;/p&gt;
 
@@ -281,15 +304,15 @@ the root of the project.&lt;/p&gt;
 
 &lt;p&gt;You could run web pack-dev-server from command line but I prefer to run through
 scripts in package.json.
-So, in package.json file, under scripts&lt;/p&gt;
+So, in package.json file, under scripts, do&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;s2&quot;&gt;&quot;start&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;webpack --progress --colors&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;s2&quot;&gt;&quot;server&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;webpack-dev-server --progress --colors  --content-base ./ —-port 3000 &quot;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;strong&gt;–content-base&lt;/strong&gt; is where html is served from, ‘./’ represents root folder and &lt;br /&gt;
-&lt;strong&gt;–port&lt;/strong&gt; is which port to use, which is 3000 in this case&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;–content-base&lt;/strong&gt; is where html is served from, and ‘./’ represents root folder&lt;br /&gt;
+&lt;strong&gt;–port&lt;/strong&gt; is which port to use, 3000 in this case&lt;/p&gt;
 
 &lt;p&gt;On the command line,&lt;/p&gt;
 
@@ -318,7 +341,7 @@ So, in package.json file, under scripts&lt;/p&gt;
   &lt;span class=&quot;s2&quot;&gt;&quot;server&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;webpack-dev-server --progress --colors  --content-base ./ —-port 3000 &quot;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name></name></author><summary type="html">Build tools usage is growing and becoming a must learn technology for any web developer these days. Although, there are so many build tools such as gulp and grunt, webpack is at the top.</summary></entry><entry><title type="html">Show git branch on the bash command prompt</title><link href="http://localhost:4000/git/2017/01/24/Show-git-branch-on-bash-command-prompt.html" rel="alternate" type="text/html" title="Show git branch on the bash command prompt" /><published>2017-01-24T22:21:57+11:00</published><updated>2017-01-24T22:21:57+11:00</updated><id>http://localhost:4000/git/2017/01/24/Show-git-branch-on-bash-command-prompt</id><content type="html" xml:base="http://localhost:4000/git/2017/01/24/Show-git-branch-on-bash-command-prompt.html">&lt;p&gt;By default, command prompt does not display git branch names. You would generally see this.&lt;/p&gt;
 
-&lt;pre&gt;deepak@Deepaks-MacBook-Pro githubBlog $&lt;/pre&gt;
+&lt;pre&gt;deepak@deepak ~ $&lt;/pre&gt;
 
 &lt;p&gt;In the terminal, type&lt;/p&gt;
 &lt;pre&gt;
@@ -336,4 +359,4 @@ export PS1=&quot;\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ &quot;
 
 &lt;p&gt;Reopen terminal&lt;/p&gt;
 
-&lt;pre&gt;deepak@Deepaks-MacBook-Pro githubBlog (master) $&lt;/pre&gt;</content><author><name></name></author><summary type="html">By default, command prompt does not display git branch names. You would generally see this.</summary></entry></feed>
+&lt;pre&gt;deepak@deepak ~ &lt;span style=&quot;color:#27ae60&quot;&gt;(master)&lt;/span&gt; $&lt;/pre&gt;</content><author><name></name></author><summary type="html">By default, command prompt does not display git branch names. You would generally see this.</summary></entry></feed>

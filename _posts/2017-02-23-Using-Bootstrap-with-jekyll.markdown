@@ -10,18 +10,25 @@ Jekyll', click <a href="{{page.previous.url}}">here</a>.
 To use bootstrap or any other front end framework,  we need to have directory structure as shown here
 `https://jekyllrb.com/docs/structure/`
 
-So, we will add folders `_includes` and `_layouts` to root folder,
-which is enough to get started with bootstrap framework.
 
-Under `_includes` folder, create new file `scripts.html`. We shall use Jquery and Bootstrap cdn.
-So add these scripts
+To start with, in `index.html` under root folder, modify the line
+<code>layout: home</code> to <code>layout:default</code>
+
+Then, we will add 2 folders `_includes` and `_layouts` to root folder.
+
+In `_includes` folder, create new file `scripts.html`. We will use Jquery and Bootstrap cdn,
+so add these scripts
+
+<strong>scripts.html</strong>
 {% highlight ruby %}
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 {% endhighlight %}
 
 
-Under `_layouts`, create new file `default.html` and add the following content.
+In `_layouts`, create new file `default.html` and add the following content.
+
+<strong>default.html</strong>
 {% highlight ruby %}
 <!DOCTYPE html>
 <html class="no-js">
@@ -39,11 +46,16 @@ Under `_layouts`, create new file `default.html` and add the following content.
 </html>
 {% endhighlight %}
 
-And finally, in `index.html` under root folder, change
-<code>layout: home</code> to <code>layout:default</code>
+And, in the body section of `default.html`, add
+{% highlight ruby %}
+{{ " {% include header.html " }} %}
+{% endhighlight %}
 
-To test bootstrap framework is working, under `_includes`, create another file `header.html` and
+
+To test bootstrap framework is working, in `_includes` folder, create another file `header.html` and
 add the code below
+
+<strong>header.html</strong>
 {% highlight ruby %}
 <header>
   <nav class="navbar navbar-default">
@@ -71,13 +83,7 @@ add the code below
 </header>
 {% endhighlight %}
 
-Now, in the body section of `default.html`, add
-{% highlight ruby %}
-{{ " {% include header.html " }} %}
-{% endhighlight %}
-
-
-In your terminal, run
+Now, in your terminal, run
 {% highlight ruby %}
 jekyll serve
 {% endhighlight %}
@@ -85,6 +91,8 @@ jekyll serve
 This will serve up new blog with bootstrap framework. However, this will not show up the posts.
 
 So, just add the code below in `index.html`,
+
+<strong>index.html</strong>
 {% highlight ruby %}
 <ul>
   {{ " {% for post in site.posts" }} %}

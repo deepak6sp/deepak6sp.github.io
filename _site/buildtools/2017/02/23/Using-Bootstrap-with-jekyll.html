@@ -50,16 +50,22 @@ Jekyll’, click <a href="/buildtools/2017/02/23/Getting-started-with-jekyll.htm
 <p>To use bootstrap or any other front end framework,  we need to have directory structure as shown here
 <code class="highlighter-rouge">https://jekyllrb.com/docs/structure/</code></p>
 
-<p>So, we will add folders <code class="highlighter-rouge">_includes</code> and <code class="highlighter-rouge">_layouts</code> to root folder,
-which is enough to get started with bootstrap framework.</p>
+<p>To start with, in <code class="highlighter-rouge">index.html</code> under root folder, modify the line
+<code>layout: home</code> to <code>layout:default</code></p>
 
-<p>Under <code class="highlighter-rouge">_includes</code> folder, create new file <code class="highlighter-rouge">scripts.html</code>. We shall use Jquery and Bootstrap cdn.
-So add these scripts</p>
+<p>Then, we will add 2 folders <code class="highlighter-rouge">_includes</code> and <code class="highlighter-rouge">_layouts</code> to root folder.</p>
+
+<p>In <code class="highlighter-rouge">_includes</code> folder, create new file <code class="highlighter-rouge">scripts.html</code>. We will use Jquery and Bootstrap cdn,
+so add these scripts</p>
+
+<p><strong>scripts.html</strong></p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&lt;</span><span class="n">script</span> <span class="n">src</span><span class="o">=</span><span class="s2">"http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"</span><span class="o">&gt;&lt;</span><span class="sr">/script&gt;
 &lt;script src="https:/</span><span class="o">/</span><span class="n">maxcdn</span><span class="p">.</span><span class="nf">bootstrapcdn</span><span class="p">.</span><span class="nf">com</span><span class="o">/</span><span class="n">bootstrap</span><span class="o">/</span><span class="mi">3</span><span class="o">.</span><span class="mi">3</span><span class="o">.</span><span class="mi">7</span><span class="o">/</span><span class="n">js</span><span class="o">/</span><span class="n">bootstrap</span><span class="p">.</span><span class="nf">min</span><span class="p">.</span><span class="nf">js</span><span class="s2">"&gt;&lt;/script&gt;</span></code></pre></figure>
 
-<p>Under <code class="highlighter-rouge">_layouts</code>, create new file <code class="highlighter-rouge">default.html</code> and add the following content.</p>
+<p>In <code class="highlighter-rouge">_layouts</code>, create new file <code class="highlighter-rouge">default.html</code> and add the following content.</p>
+
+<p><strong>default.html</strong></p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&lt;!</span><span class="no">DOCTYPE</span> <span class="n">html</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="n">html</span> <span class="k">class</span><span class="o">=</span><span class="s2">"no-js"</span><span class="o">&gt;</span>
@@ -76,11 +82,14 @@ So add these scripts</p>
 &lt;/</span><span class="n">body</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="sr">/html&gt;</span></code></pre></figure>
 
-<p>And finally, in <code class="highlighter-rouge">index.html</code> under root folder, change
-<code>layout: home</code> to <code>layout:default</code></p>
+<p>And, in the body section of <code class="highlighter-rouge">default.html</code>, add</p>
 
-<p>To test bootstrap framework is working, under <code class="highlighter-rouge">_includes</code>, create another file <code class="highlighter-rouge">header.html</code> and
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> <span class="p">{</span><span class="sx">% include </span><span class="n">header</span><span class="p">.</span><span class="nf">html</span>  <span class="sx">%}</span></code></pre></figure>
+
+<p>To test bootstrap framework is working, in <code class="highlighter-rouge">_includes</code> folder, create another file <code class="highlighter-rouge">header.html</code> and
 add the code below</p>
+
+<p><strong>header.html</strong></p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&lt;</span><span class="n">header</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">nav</span> <span class="k">class</span><span class="o">=</span><span class="s2">"navbar navbar-default"</span><span class="o">&gt;</span>
@@ -107,17 +116,15 @@ add the code below</p>
   &lt;/nav&gt;
 &lt;/header&gt;</span></code></pre></figure>
 
-<p>Now, in the body section of <code class="highlighter-rouge">default.html</code>, add</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> <span class="p">{</span><span class="sx">% include </span><span class="n">header</span><span class="p">.</span><span class="nf">html</span>  <span class="sx">%}</span></code></pre></figure>
-
-<p>In your terminal, run</p>
+<p>Now, in your terminal, run</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">jekyll</span> <span class="n">serve</span></code></pre></figure>
 
 <p>This will serve up new blog with bootstrap framework. However, this will not show up the posts.</p>
 
 <p>So, just add the code below in <code class="highlighter-rouge">index.html</code>,</p>
+
+<p><strong>index.html</strong></p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&lt;</span><span class="n">ul</span><span class="o">&gt;</span>
    <span class="p">{</span><span class="sx">% for </span><span class="n">post</span> <span class="k">in</span> <span class="n">site</span><span class="p">.</span><span class="nf">posts</span> <span class="sx">%}

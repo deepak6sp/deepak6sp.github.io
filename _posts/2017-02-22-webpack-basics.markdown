@@ -10,10 +10,10 @@ any web developer these days. Although, there are so many build tools such as gu
 webpack is at the top.
 
 Lets start.
-Yarn is my favourite these days as Yarn is faster than npm and also takes offline approach,
+Yarn is my favourite because it is faster than npm and also takes offline approach,
 which means, you don't need internet connectivity to install packages once installed.
 
-Learn more about [yarn here]
+Learn more about yarn  <a href="https://yarnpkg.com/en/" target='\_blank'>here</a>
 
 On command line, do
 {% highlight ruby %}
@@ -56,15 +56,15 @@ How to run webpack-dev-server?
 
 You could run web pack-dev-server from command line but I prefer to run through
 scripts in package.json.
-So, in package.json file, under scripts
+So, in package.json file, under scripts, do
 {% highlight ruby %}
 "scripts": {
   "start": "webpack --progress --colors",
   "server": "webpack-dev-server --progress --colors  --content-base ./ —-port 3000 "
 }
 {% endhighlight %}
-**--content-base** is where html is served from, './' represents root folder and <br>
-**--port** is which port to use, which is 3000 in this case
+**--content-base** is where html is served from, and './' represents root folder<br>
+**--port** is which port to use, 3000 in this case
 
 On the command line,
 {% highlight ruby %}
@@ -92,7 +92,3 @@ So, in package.json file, under scripts
   "server": "webpack-dev-server --progress --colors  --content-base ./ —-port 3000 "
 }
 {% endhighlight %}
-
-
-
-[yarn here]: https://yarnpkg.com/en/

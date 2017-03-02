@@ -4,16 +4,32 @@ title:  "How to wait for promises during unit test"
 date:   2017-02-26 22:21:57 +1100
 categories: Testing
 ---
-Image you are testing a Javascript function which calls a url and, that url returns a promise with ‘SOME VALUE’.
+Assume you are testing a Javascript method which calls a url and, then that url
+returns a promise with ‘SOME VALUE’.
 
-Lets start writing test. I will be using jasmine to write my tests.
+<strong>test-function.js</strong>
+<pre>
+  export class TestClass {
+    constructor(){
+
+    }
+    testMethod(){
+        var promise = fetch(url)
+                      .then((response) => {
+                        return response;
+                      });
+    }
+  }
+</pre>
+
+Lets start writing test. I will be using Jasmine to write unit tests.
 Firstly, we will write test to make sure the function has been defined.
 A simple test could be,
 <pre>
 import { TestClass }  from ‘test-function.js’;
 describe ( ‘check function’ , () => {
   it(‘has been defined, () =>  {
-    expect(TestClass.promiseFunction). toBeDefined();
+    expect(TestClass.testMethod).toBeDefined();
   }
 });
 </pre>
@@ -23,28 +39,27 @@ So, we will do this in beforeAll()
 
 <pre>
 import { TestClass }  from ‘test-function.js’;
-describe ( ‘check promiseFunction()’ , () => {
+describe ( ‘check testMethod()’ , () => {
   let testClass;
   beforeAll(() => {
     testClass = new TestClass();
   });
 
   it(‘has been defined, () =>  {
-    expect(testClass.promiseFunction).toBeDefined();
+    expect(testClass.testMethod).toBeDefined();
   }
 });
 </pre>
 
-Next, we will call the url using javascript fetch API. But this time we assume to initiate the class instance when promise is returned. We will also write test to check if promise is returned.
+Next, we will call the url using javascript fetch API. But, this time we will initiate the class instance when promise is returned. Then, we will also write test to check if promise is returned.
 
 <pre>
 import { TestClass }  from ‘test-function.js’;
-describe ('check promiseFunction()', () => {
+describe ('check testMethod()', () => {
   let testClass;
-  let Promise;
+  let newPromise;
   beforeAll(() => {
-    testClass = new TestClass();
-    Promise =  fetch(url)
+    newPromise =  fetch(url)
       .then(response => response.json())
       .then(value => {
         testClass = new TestClass(value);
@@ -52,15 +67,15 @@ describe ('check promiseFunction()', () => {
   });
 
   it('has been defined', () =>  {
-    expect(testClass.promiseFunction). toBeDefined();
+    expect(testClass.testMethod).toBeDefined();
   }
 
   it('returns a promise', () => {
-    expect(returnPromise).toEqual(jasmine.any(Promise));
+    expect(newPromise).toEqual(jasmine.any(Promise));
   });
 
   it('is returning correct value' , () => {
-    expect(testClass.promiseFunction).toEqual(SOME VALUE);
+    expect(testClass.testMethod).toEqual(SOME VALUE);
   });
 });
 </pre>
@@ -80,34 +95,33 @@ beforeEach(done => {
 So , the test looks as below
 <pre>
 import { TestClass }  from ‘test-function.js’;
-describe ( ‘check promiseFunction()’ , () => {
+describe ( ‘check testMethod()’ , () => {
   let testClass;
   let Promise;
   beforeAll(() => {
-    testClass = new TestClass();
-    Promise =  fetch(url)
+    newPromise =  fetch(url)
     .then(response => response.json())
-    .then(value = {
+    .then(value => {
       testClass = new TestClass(value);
     });
   });
 
   it('has been defined', () =>  {
-    expect(testClass.promiseFunction). toBeDefined();
+    expect(testClass.testMethod). toBeDefined();
   });
 
   it('returns a promise', () => {
-    expect(returnPromise).toEqual(jasmine.any(Promise));
+    expect(newPromise).toEqual(jasmine.any(Promise));
   });
 
   describe('on successful promise return : ', () => {
     beforeEach(done => {
-      returnPromise.then(() => {
+      newPromise.then(() => {
       done();
     });
 
     it('is returning correct value', () => {
-      expect(testClass.promiseFunction).toEqual(SOME VALUE);
+      expect(testClass.testMethod).toEqual(SOME VALUE);
     });
   });
 });

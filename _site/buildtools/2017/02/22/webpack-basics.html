@@ -49,10 +49,10 @@ any web developer these days. Although, there are so many build tools such as gu
 webpack is at the top.</p>
 
 <p>Lets start.
-Yarn is my favourite these days as Yarn is faster than npm and also takes offline approach,
+Yarn is my favourite because it is faster than npm and also takes offline approach,
 which means, you don’t need internet connectivity to install packages once installed.</p>
 
-<p>Learn more about <a href="https://yarnpkg.com/en/">yarn here</a></p>
+<p>Learn more about yarn  <a href="https://yarnpkg.com/en/" target="\_blank">here</a></p>
 
 <p>On command line, do</p>
 
@@ -90,15 +90,15 @@ the root of the project.</p>
 
 <p>You could run web pack-dev-server from command line but I prefer to run through
 scripts in package.json.
-So, in package.json file, under scripts</p>
+So, in package.json file, under scripts, do</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="s2">"scripts"</span><span class="p">:</span> <span class="p">{</span>
   <span class="s2">"start"</span><span class="p">:</span> <span class="s2">"webpack --progress --colors"</span><span class="p">,</span>
   <span class="s2">"server"</span><span class="p">:</span> <span class="s2">"webpack-dev-server --progress --colors  --content-base ./ —-port 3000 "</span>
 <span class="p">}</span></code></pre></figure>
 
-<p><strong>–content-base</strong> is where html is served from, ‘./’ represents root folder and <br />
-<strong>–port</strong> is which port to use, which is 3000 in this case</p>
+<p><strong>–content-base</strong> is where html is served from, and ‘./’ represents root folder<br />
+<strong>–port</strong> is which port to use, 3000 in this case</p>
 
 <p>On the command line,</p>
 

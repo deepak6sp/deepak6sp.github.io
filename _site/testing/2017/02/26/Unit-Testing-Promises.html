@@ -44,16 +44,32 @@
     26 Feb 2017
   </p>
   </br>
-  <p>Image you are testing a Javascript function which calls a url and, that url returns a promise with ‘SOME VALUE’.</p>
+  <p>Assume you are testing a Javascript method which calls a url and, then that url
+returns a promise with ‘SOME VALUE’.</p>
 
-<p>Lets start writing test. I will be using jasmine to write my tests.
+<p><strong>test-function.js</strong></p>
+<pre>
+  export class TestClass {
+    constructor(){
+
+    }
+    testMethod(){
+        var promise = fetch(url)
+                      .then((response) =&gt; {
+                        return response;
+                      });
+    }
+  }
+</pre>
+
+<p>Lets start writing test. I will be using Jasmine to write unit tests.
 Firstly, we will write test to make sure the function has been defined.
 A simple test could be,</p>
 <pre>
 import { TestClass }  from ‘test-function.js’;
 describe ( ‘check function’ , () =&gt; {
   it(‘has been defined, () =&gt;  {
-    expect(TestClass.promiseFunction). toBeDefined();
+    expect(TestClass.testMethod).toBeDefined();
   }
 });
 </pre>
@@ -63,28 +79,27 @@ So, we will do this in beforeAll()</p>
 
 <pre>
 import { TestClass }  from ‘test-function.js’;
-describe ( ‘check promiseFunction()’ , () =&gt; {
+describe ( ‘check testMethod()’ , () =&gt; {
   let testClass;
   beforeAll(() =&gt; {
     testClass = new TestClass();
   });
 
   it(‘has been defined, () =&gt;  {
-    expect(testClass.promiseFunction).toBeDefined();
+    expect(testClass.testMethod).toBeDefined();
   }
 });
 </pre>
 
-<p>Next, we will call the url using javascript fetch API. But this time we assume to initiate the class instance when promise is returned. We will also write test to check if promise is returned.</p>
+<p>Next, we will call the url using javascript fetch API. But, this time we will initiate the class instance when promise is returned. Then, we will also write test to check if promise is returned.</p>
 
 <pre>
 import { TestClass }  from ‘test-function.js’;
-describe ('check promiseFunction()', () =&gt; {
+describe ('check testMethod()', () =&gt; {
   let testClass;
-  let Promise;
+  let newPromise;
   beforeAll(() =&gt; {
-    testClass = new TestClass();
-    Promise =  fetch(url)
+    newPromise =  fetch(url)
       .then(response =&gt; response.json())
       .then(value =&gt; {
         testClass = new TestClass(value);
@@ -92,15 +107,15 @@ describe ('check promiseFunction()', () =&gt; {
   });
 
   it('has been defined', () =&gt;  {
-    expect(testClass.promiseFunction). toBeDefined();
+    expect(testClass.testMethod).toBeDefined();
   }
 
   it('returns a promise', () =&gt; {
-    expect(returnPromise).toEqual(jasmine.any(Promise));
+    expect(newPromise).toEqual(jasmine.any(Promise));
   });
 
   it('is returning correct value' , () =&gt; {
-    expect(testClass.promiseFunction).toEqual(SOME VALUE);
+    expect(testClass.testMethod).toEqual(SOME VALUE);
   });
 });
 </pre>
@@ -120,34 +135,33 @@ beforeEach(done =&gt; {
 <p>So , the test looks as below</p>
 <pre>
 import { TestClass }  from ‘test-function.js’;
-describe ( ‘check promiseFunction()’ , () =&gt; {
+describe ( ‘check testMethod()’ , () =&gt; {
   let testClass;
   let Promise;
   beforeAll(() =&gt; {
-    testClass = new TestClass();
-    Promise =  fetch(url)
+    newPromise =  fetch(url)
     .then(response =&gt; response.json())
-    .then(value = {
+    .then(value =&gt; {
       testClass = new TestClass(value);
     });
   });
 
   it('has been defined', () =&gt;  {
-    expect(testClass.promiseFunction). toBeDefined();
+    expect(testClass.testMethod). toBeDefined();
   });
 
   it('returns a promise', () =&gt; {
-    expect(returnPromise).toEqual(jasmine.any(Promise));
+    expect(newPromise).toEqual(jasmine.any(Promise));
   });
 
   describe('on successful promise return : ', () =&gt; {
     beforeEach(done =&gt; {
-      returnPromise.then(() =&gt; {
+      newPromise.then(() =&gt; {
       done();
     });
 
     it('is returning correct value', () =&gt; {
-      expect(testClass.promiseFunction).toEqual(SOME VALUE);
+      expect(testClass.testMethod).toEqual(SOME VALUE);
     });
   });
 });

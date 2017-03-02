@@ -6,7 +6,7 @@ categories: Git
 ---
 By default, command prompt does not display git branch names. You would generally see this.
 
-<pre>deepak@Deepaks-MacBook-Pro githubBlog $</pre>
+<pre>deepak@deepak ~ $</pre>
 
 In the terminal, type
 <pre>
@@ -24,4 +24,4 @@ export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 
 Reopen terminal
 
-<pre>deepak@Deepaks-MacBook-Pro githubBlog (master) $</pre>
+<pre>deepak@deepak ~ <span style="color:#27ae60">(master)</span> $</pre>
