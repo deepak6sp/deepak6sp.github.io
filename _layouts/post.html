@@ -7,8 +7,9 @@ layout: default
   <p class="text-success">
     {{ page.date | date_to_string }}
   </p>
+  {% include social-share.html %}
   </br>
   {{ content }}
   </br>
-  {% include social-share.html %}
+
 </div>

@@ -9,6 +9,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="/assets/css/main.css">
+
+<!-- facebook script -->
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -17,6 +19,24 @@
   js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- twitter script -->
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
 
 <body>
   <header>
@@ -56,6 +76,18 @@
   <p class="text-success">
     01 Mar 2017
   </p>
+  <div class="row">
+  <div class="col-xs-2 col-md-1">
+    <a class="twitter-share-button"
+      href="https://twitter.com/intent/tweet?text=Mock date with MomentJS ( Jasmine Unit Test ) https://deepak6sp.github.io/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test.html">
+    </a>
+  </div>
+  <div class="col-xs-10">
+    <script src="https://platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+    <script type="IN/Share" data-url="https://deepak6sp.github.io/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test.html" data-counter="right"></script>
+  </div>
+</div>
+
   </br>
   <p>MomentJS <a href="https://momentjs.com/" target="\_blank">( https://momentjs.com/ )</a>
 is a great library for parsing, validating, manipulating, and formatting dates.
@@ -73,19 +105,6 @@ beforeEach(() =&gt; {
 today’s current date and time.</p>
 
   </br>
-  <div class="row">
-  <div class="col-xs-4 col-sm-2">
-    <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
-    <script type="IN/Share" data-url="https://deepak6sp.github.io/" data-counter="right"></script>
-  </div>
-  <div class="col-xs-4 col-sm-2">
-    <a class="twitter-share-button"
-      href="https://twitter.com/intent/tweet?text=Mock date with MomentJS ( Jasmine Unit Test ) https://deepak6sp.github.io/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test.html"
-      data-size="large">
-      Tweet
-    </a>
-  </div>
-</div>
 
 </div>
 
