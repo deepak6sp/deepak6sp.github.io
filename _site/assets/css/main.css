@@ -42,6 +42,9 @@ nav .side-nav h5 {
   color: #01579b;
   padding: 0 16px; }
 
+.pagination li.active {
+  background-color: #01579b; }
+
 .mdl-card {
   width: 100%; }
   .mdl-card h6 {
