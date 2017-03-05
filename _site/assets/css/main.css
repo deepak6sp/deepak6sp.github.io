@@ -42,6 +42,12 @@ nav .side-nav h5 {
   color: #01579b;
   padding: 0 16px; }
 
+nav .side-nav a {
+  padding: 0 16px; }
+
+nav .side-nav li {
+  border-bottom: 1px solid #ddd; }
+
 .pagination li.active {
   background-color: #01579b; }
 

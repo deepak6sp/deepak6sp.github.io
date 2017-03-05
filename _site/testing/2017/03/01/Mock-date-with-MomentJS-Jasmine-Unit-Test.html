@@ -41,9 +41,8 @@
   </div>
 </nav>
 
-  <main class="mdl-layout__content">
-    <div class="page-content container">
-      <div class="post">
+  <main class="page-content container">
+    <div class="post">
   <h4 class="postTitle">Mock date with MomentJS ( Jasmine Unit Test )</h4>
   <h6 class="text-success">
     01 Mar 2017
@@ -79,7 +78,6 @@ today’s current date and time.</p>
 
 </div>
 
-    </div>
   </main><!-- end .content -->
   <footer class="page-footer light-blue darken-4">
   <div class="footer-copyright">
@@ -97,8 +95,11 @@ today’s current date and time.</p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 
 <script>
-$( document ).ready(function(){
-  $(".button-collapse").sideNav();
+$(document).ready(function(){
+  $(".button-collapse").sideNav({
+    menuWidth: 200, // Default is 300
+    closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+  });
 })
 </script>
 

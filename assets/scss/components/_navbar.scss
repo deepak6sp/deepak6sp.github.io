@@ -11,9 +11,15 @@ nav {
   }
 
   .side-nav{
-    h5{
+    h5 {
       color:$primary_color;
       padding: 0 16px;
+    }
+    a {
+      padding: 0 16px;
+    }
+    li {
+      border-bottom: 1px solid $silver;
     }
   }
 }

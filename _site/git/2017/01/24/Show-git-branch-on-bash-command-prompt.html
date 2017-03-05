@@ -41,9 +41,8 @@
   </div>
 </nav>
 
-  <main class="mdl-layout__content">
-    <div class="page-content container">
-      <div class="post">
+  <main class="page-content container">
+    <div class="post">
   <h4 class="postTitle">Show git branch on the bash command prompt</h4>
   <h6 class="text-success">
     24 Jan 2017
@@ -86,7 +85,6 @@ export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 
 </div>
 
-    </div>
   </main><!-- end .content -->
   <footer class="page-footer light-blue darken-4">
   <div class="footer-copyright">
@@ -104,8 +102,11 @@ export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 
 <script>
-$( document ).ready(function(){
-  $(".button-collapse").sideNav();
+$(document).ready(function(){
+  $(".button-collapse").sideNav({
+    menuWidth: 200, // Default is 300
+    closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+  });
 })
 </script>
 

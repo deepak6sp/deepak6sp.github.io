@@ -41,9 +41,8 @@
   </div>
 </nav>
 
-  <main class="mdl-layout__content">
-    <div class="page-content container">
-      <div class="post">
+  <main class="page-content container">
+    <div class="post">
   <h4 class="postTitle">Webpack Basics ( With Yarn )</h4>
   <h6 class="text-success">
     22 Feb 2017
@@ -148,7 +147,6 @@ So, in package.json file, under scripts</p>
 
 </div>
 
-    </div>
   </main><!-- end .content -->
   <footer class="page-footer light-blue darken-4">
   <div class="footer-copyright">
@@ -166,8 +164,11 @@ So, in package.json file, under scripts</p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 
 <script>
-$( document ).ready(function(){
-  $(".button-collapse").sideNav();
+$(document).ready(function(){
+  $(".button-collapse").sideNav({
+    menuWidth: 200, // Default is 300
+    closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+  });
 })
 </script>
 

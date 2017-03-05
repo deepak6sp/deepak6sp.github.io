@@ -41,9 +41,8 @@
   </div>
 </nav>
 
-  <main class="mdl-layout__content">
-    <div class="page-content container">
-      <article class="post">
+  <main class="page-content container">
+    <article class="post">
 
   <header class="post-header">
     <h1 class="post-title">About</h1>
@@ -64,7 +63,6 @@ include tips and tricks about UX/UI, front end and back end technologies.</p>
 
 </article>
 
-    </div>
   </main><!-- end .content -->
   <footer class="page-footer light-blue darken-4">
   <div class="footer-copyright">
@@ -82,8 +80,11 @@ include tips and tricks about UX/UI, front end and back end technologies.</p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 
 <script>
-$( document ).ready(function(){
-  $(".button-collapse").sideNav();
+$(document).ready(function(){
+  $(".button-collapse").sideNav({
+    menuWidth: 200, // Default is 300
+    closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+  });
 })
 </script>
 
