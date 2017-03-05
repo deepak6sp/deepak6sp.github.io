@@ -1,12 +1,49 @@
-body {
-  padding-top: 75px; }
-
 p {
-  font-size: 1.6rem; }
+  font-size: 1.2rem;
+  color: #000; }
 
 .container {
-  max-width: 1024px; }
+  max-width: 1024px;
+  margin: 0 auto; }
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column; }
+
+main {
+  flex: 1 0 auto; }
+
+a {
+  color: #01579b; }
+
+pre {
+  background: #000;
+  color: #fff;
+  padding: 10px 20px; }
+
+figure {
+  margin: 0px; }
 
 .fb-share-button {
   margin-top: 15px;
   max-height: 20px; }
+
+nav .brand-logo {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%); }
+
+nav .button-collapse {
+  display: block !important;
+  margin: 0 10px; }
+
+nav .side-nav h5 {
+  color: #01579b;
+  padding: 0 16px; }
+
+.mdl-card {
+  width: 100%; }
+  .mdl-card h6 {
+    margin-top: 0px;
+    margin-left: 16px; }

@@ -9,17 +9,16 @@ returns a promise with ‘SOME VALUE’.
 
 <strong>test-function.js</strong>
 <pre>
-  export class TestClass {
-    constructor(){
-
-    }
-    testMethod(){
-        var promise = fetch(url)
-                      .then((response) => {
-                        return response;
-                      });
-    }
+export class TestClass {
+  constructor(){
   }
+  testMethod(){
+    var promise = fetch(url)
+    .then((response) => {
+      return response;
+    });
+  }
+}
 </pre>
 
 Lets start writing test. I will be using Jasmine to write unit tests.

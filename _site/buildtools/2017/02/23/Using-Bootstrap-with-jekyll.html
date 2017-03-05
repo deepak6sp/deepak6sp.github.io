@@ -7,88 +7,59 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--Import Google Icon Font-->
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
 <link rel="stylesheet" href="/assets/css/main.css">
 
-<!-- facebook script -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<!-- twitter script -->
-<script>window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
-
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
-
-  return t;
-}(document, "script", "twitter-wjs"));</script>
-
 <body>
-  <header>
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Deepak Prakash</a>
-        <!-- <div class="fb-share-button" data-href="https://deepak6sp.github.io/" data-layout="button_count" data-size="small" data-mobile-iframe="true">
-          <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeepak6sp.github.io%2F&amp;src=sdkpreparse">
-            Share
-          </a>
-        </div> -->
-      </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          
-            <li><a href="/about">About</a></li>
-          
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-</header>
+  <!-- Always shows a header, even in smaller screens. -->
+<nav class="light-blue darken-4">
+  <div class="nav-wrapper container">
+    <a href="/" class="brand-logo">Deepak Prakash</a>
+    <ul class="right">
+      
+          <li><a href="/about">About</a></li>
+      
+    </ul>
 
-  <div class="content">
-    <div class="container">
+    <ul class="side-nav" id="slide-out">
+      <h5>Categories</h5>
+      
+        
+        <li><a class="waves-effect waves-light-blue" href="/categories/git.html">Git</a></li>
+      
+        
+        <li><a class="waves-effect waves-light-blue" href="/categories/buildtools.html">Buildtools</a></li>
+      
+        
+        <li><a class="waves-effect waves-light-blue" href="/categories/testing.html">Testing</a></li>
+      
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
+
+  <main class="mdl-layout__content">
+    <div class="page-content container">
       <div class="post">
-  <h1 class="postTitle">Using Bootstrap with Jekyll</h1>
-  <p class="text-success">
+  <h4 class="postTitle">Using Bootstrap with Jekyll</h4>
+  <h6 class="text-success">
     23 Feb 2017
-  </p>
+  </h6>
   <div class="row">
-  <div class="col-xs-2 col-md-1">
+  <div class="col s2 m1">
     <a class="twitter-share-button"
       href="https://twitter.com/intent/tweet?text=Using Bootstrap with Jekyll https://deepak6sp.github.io/buildtools/2017/02/23/Using-Bootstrap-with-jekyll.html">
     </a>
   </div>
-  <div class="col-xs-10">
+  <div class="col s2 m1">
     <script src="https://platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
     <script type="IN/Share" data-url="https://deepak6sp.github.io/buildtools/2017/02/23/Using-Bootstrap-with-jekyll.html" data-counter="right"></script>
   </div>
 </div>
 
-  </br>
   <p>Before starting with this section, if you would like to know ‘How to get started with
 Jekyll’, click <a href="/buildtools/2017/02/23/Getting-started-with-jekyll.html">here</a>.</p>
 
@@ -186,20 +157,56 @@ add the code below</p>
 </div>
 
     </div>
-  </div><!-- end .content -->
-  
-  <footer>
-  <hr/>
-  <div class="container-fluid container">
-    <p class="pull-left">Written with ♡ </p>
-    <p class="pull-right">© 2017 Deepak Prakash</p>
+  </main><!-- end .content -->
+  <footer class="page-footer light-blue darken-4">
+  <div class="footer-copyright">
+    <div class="container">
+      Written with ♡
+      <div class="grey-text text-lighten-4 right">
+        © 2017 Deepak Prakash
+      </div>
+    </div>
   </div>
 </footer>
 
-  <!-- Add jQuery and other scripts -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- <script>window.jQuery || document.write('<script src=""><\/script>')</script> -->
+  <!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+<script>
+$( document ).ready(function(){
+  $(".button-collapse").sideNav();
+})
+</script>
+
+
+<!-- facebook script -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- twitter script -->
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
 
 </body>
 </html>

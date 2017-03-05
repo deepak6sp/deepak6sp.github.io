@@ -7,8 +7,153 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--Import Google Icon Font-->
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
 <link rel="stylesheet" href="/assets/css/main.css">
+
+<body>
+  <!-- Always shows a header, even in smaller screens. -->
+<nav class="light-blue darken-4">
+  <div class="nav-wrapper container">
+    <a href="/" class="brand-logo">Deepak Prakash</a>
+    <ul class="right">
+      
+          <li><a href="/about">About</a></li>
+      
+    </ul>
+
+    <ul class="side-nav" id="slide-out">
+      <h5>Categories</h5>
+      
+        
+        <li><a class="waves-effect waves-light-blue" href="/categories/git.html">Git</a></li>
+      
+        
+        <li><a class="waves-effect waves-light-blue" href="/categories/buildtools.html">Buildtools</a></li>
+      
+        
+        <li><a class="waves-effect waves-light-blue" href="/categories/testing.html">Testing</a></li>
+      
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
+
+  <main class="mdl-layout__content">
+    <div class="page-content container">
+      
+<div class="row">
+  <div class="col s12">
+    <div class="card-panel">
+      <div class="card-content">
+        <h4><a class="card-title" href="/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test.html">Mock date with MomentJS ( Jasmine Unit Test )</a></h4>
+        <h6>01 Mar 2017</h6>
+        <p><p>MomentJS <a href="https://momentjs.com/" target="\_blank">( https://momentjs.com/ )</a>
+is a great library for parsing, validating, manipulating, and formatting dates.
+When running Jasmine unit tests, it is easy to mock date and time with just 3 lines of code.</p>
+
+</p>
+      </div>
+      <div class="card-action">
+        
+          <a class="btn btn-info waves-effect waves-light light-blue darken-4" href="/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test.html">
+            Read more
+          </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s12">
+    <div class="card-panel">
+      <div class="card-content">
+        <h4><a class="card-title" href="/testing/2017/02/26/Unit-Testing-Promises.html">How to wait for promises during unit test</a></h4>
+        <h6>26 Feb 2017</h6>
+        <p><p>Assume you are testing a Javascript method which calls a url and, then that url
+returns a promise with ‘SOME VALUE’.</p>
+
+</p>
+      </div>
+      <div class="card-action">
+        
+          <a class="btn btn-info waves-effect waves-light light-blue darken-4" href="/testing/2017/02/26/Unit-Testing-Promises.html">
+            Read more
+          </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Pagination links -->
+<div class="row">
+  <div class="col-sm-12 center-align">
+    <ul class="pagination">
+      
+        <li class="page-item disabled">
+          <a class="previous">Previous</a>
+        </li>
+      
+      
+        
+          <li class="page-item waves-effect  active ">
+            <a href="/">1</a>
+          </li>
+        
+      
+        
+          <li class="page-item waves-effect ">
+            <a href="/page2">
+              2
+            </a>
+          </li>
+        
+      
+        
+          <li class="page-item waves-effect ">
+            <a href="/page3">
+              3
+            </a>
+          </li>
+        
+      
+      
+        <li class="page-item waves-effect">
+          <a href="/page2/" class="next">Next</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+    </div>
+  </main><!-- end .content -->
+  <footer class="page-footer light-blue darken-4">
+  <div class="footer-copyright">
+    <div class="container">
+      Written with ♡
+      <div class="grey-text text-lighten-4 right">
+        © 2017 Deepak Prakash
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+<script>
+$( document ).ready(function(){
+  $(".button-collapse").sideNav();
+})
+</script>
+
 
 <!-- facebook script -->
 <div id="fb-root"></div>
@@ -37,181 +182,6 @@
 
   return t;
 }(document, "script", "twitter-wjs"));</script>
-
-<body>
-  <header>
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Deepak Prakash</a>
-        <!-- <div class="fb-share-button" data-href="https://deepak6sp.github.io/" data-layout="button_count" data-size="small" data-mobile-iframe="true">
-          <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeepak6sp.github.io%2F&amp;src=sdkpreparse">
-            Share
-          </a>
-        </div> -->
-      </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          
-            <li><a href="/about">About</a></li>
-          
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-</header>
-
-  <div class="content">
-    <div class="container">
-      <div class="row">
-  <div class="col-sm-9 col-md-10">
-    
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h3><a href="/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test.html">Mock date with MomentJS ( Jasmine Unit Test )</a></h3>
-        <h5>01 Mar 2017</h5>
-        <p>MomentJS <a href="https://momentjs.com/" target="\_blank">( https://momentjs.com/ )</a>
-is a great library for parsing, validating, manipulating, and formatting dates.
-When running Jasmine unit tests, it is easy to mock date and time with just 3 lines of code.</p>
-
-
-        
-            <a class="btn btn-info" href="/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test.html">Read more</a>
-        
-      </div>
-    </div>
-    
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h3><a href="/testing/2017/02/26/Unit-Testing-Promises.html">How to wait for promises during unit test</a></h3>
-        <h5>26 Feb 2017</h5>
-        <p>Assume you are testing a Javascript method which calls a url and, then that url
-returns a promise with ‘SOME VALUE’.</p>
-
-
-        
-            <a class="btn btn-info" href="/testing/2017/02/26/Unit-Testing-Promises.html">Read more</a>
-        
-      </div>
-    </div>
-    
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h3><a href="/buildtools/2017/02/23/Using-Bootstrap-with-jekyll.html">Using Bootstrap with Jekyll</a></h3>
-        <h5>23 Feb 2017</h5>
-        <p>Before starting with this section, if you would like to know ‘How to get started with
-Jekyll’, click <a href="/buildtools/2017/02/23/Getting-started-with-jekyll.html">here</a>.</p>
-
-
-        
-            <a class="btn btn-info" href="/buildtools/2017/02/23/Using-Bootstrap-with-jekyll.html">Read more</a>
-        
-      </div>
-    </div>
-    
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h3><a href="/buildtools/2017/02/23/Getting-started-with-jekyll.html">Getting started with Jekyll</a></h3>
-        <h5>23 Feb 2017</h5>
-        <p>In order to install jekyll, we need to install ruby gems.
-You can install gems from here
-https://rubygems.org/pages/download</p>
-
-
-        
-            <a class="btn btn-info" href="/buildtools/2017/02/23/Getting-started-with-jekyll.html">Read more</a>
-        
-      </div>
-    </div>
-    
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h3><a href="/buildtools/2017/02/22/webpack-basics.html">Webpack Basics ( With Yarn )</a></h3>
-        <h5>22 Feb 2017</h5>
-        <p>Build tools usage is growing and becoming a must learn technology for
-any web developer these days. Although, there are so many build tools such as gulp and grunt,
-webpack is at the top.</p>
-
-
-        
-            <a class="btn btn-info" href="/buildtools/2017/02/22/webpack-basics.html">Read more</a>
-        
-      </div>
-    </div>
-    
-  </div>
-  <div class="col-sm-3 col-md-2">
-    <h3>Categories</h3>
-    
-      
-      <a href="/categories/git.html">Git</a><br />
-    
-      
-      <a href="/categories/buildtools.html">Buildtools</a><br />
-    
-      
-      <a href="/categories/testing.html">Testing</a><br />
-    
-  </div>
-</div>
-
-<!-- Pagination links -->
-<div class="row">
-  <div class="col-sm-9 text-center">
-    <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        
-          <li class="page-item disabled">
-            <span class="previous">Previous</span>
-          </li>
-        
-        
-          
-            <li class="page-item">
-              <a href="/">1</a>
-            </li>
-          
-        
-          
-            <li class="page-item">
-              <a href="/page2">2</a>
-            </li>
-          
-        
-        
-          <li class="page-item">
-            <a href="/page2/" class="next">Next</a>
-          </li>
-        
-      </ul>
-    </nav>
-  </div>
-</div>
-
-
-    </div>
-  </div><!-- end .content -->
-  
-  <footer>
-  <hr/>
-  <div class="container-fluid container">
-    <p class="pull-left">Written with ♡ </p>
-    <p class="pull-right">© 2017 Deepak Prakash</p>
-  </div>
-</footer>
-
-  <!-- Add jQuery and other scripts -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- <script>window.jQuery || document.write('<script src=""><\/script>')</script> -->
 
 </body>
 </html>

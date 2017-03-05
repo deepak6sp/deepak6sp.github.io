@@ -7,8 +7,108 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--Import Google Icon Font-->
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
 <link rel="stylesheet" href="/assets/css/main.css">
+
+<body>
+  <!-- Always shows a header, even in smaller screens. -->
+<nav class="light-blue darken-4">
+  <div class="nav-wrapper container">
+    <a href="/" class="brand-logo">Deepak Prakash</a>
+    <ul class="right">
+      
+          <li><a href="/about">About</a></li>
+      
+    </ul>
+
+    <ul class="side-nav" id="slide-out">
+      <h5>Categories</h5>
+      
+        
+        <li><a class="waves-effect waves-light-blue" href="/categories/git.html">Git</a></li>
+      
+        
+        <li><a class="waves-effect waves-light-blue" href="/categories/buildtools.html">Buildtools</a></li>
+      
+        
+        <li><a class="waves-effect waves-light-blue" href="/categories/testing.html">Testing</a></li>
+      
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
+
+  <main class="mdl-layout__content">
+    <div class="page-content container">
+      <div class="post">
+  <h4 class="postTitle">Show git branch on the bash command prompt</h4>
+  <h6 class="text-success">
+    24 Jan 2017
+  </h6>
+  <div class="row">
+  <div class="col s2 m1">
+    <a class="twitter-share-button"
+      href="https://twitter.com/intent/tweet?text=Show git branch on the bash command prompt https://deepak6sp.github.io/git/2017/01/24/Show-git-branch-on-bash-command-prompt.html">
+    </a>
+  </div>
+  <div class="col s2 m1">
+    <script src="https://platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+    <script type="IN/Share" data-url="https://deepak6sp.github.io/git/2017/01/24/Show-git-branch-on-bash-command-prompt.html" data-counter="right"></script>
+  </div>
+</div>
+
+  <p>By default, command prompt does not display git branch names. You would generally see this.</p>
+
+<pre>deepak@deepak ~ $</pre>
+
+<p>In the terminal, type</p>
+<pre>
+touch ~/.bash_profile
+vi ~/.bash_profile
+</pre>
+
+<p>Now, in .bash_profile, copy the code below</p>
+<pre>
+parse_git_branch() {
+  git branch 2&gt; /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+</pre>
+
+<p>Reopen terminal</p>
+
+<pre>deepak@deepak ~ <span style="color:#27ae60">(master)</span> $</pre>
+
+  </br>
+
+</div>
+
+    </div>
+  </main><!-- end .content -->
+  <footer class="page-footer light-blue darken-4">
+  <div class="footer-copyright">
+    <div class="container">
+      Written with ♡
+      <div class="grey-text text-lighten-4 right">
+        © 2017 Deepak Prakash
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+<script>
+$( document ).ready(function(){
+  $(".button-collapse").sideNav();
+})
+</script>
+
 
 <!-- facebook script -->
 <div id="fb-root"></div>
@@ -37,99 +137,6 @@
 
   return t;
 }(document, "script", "twitter-wjs"));</script>
-
-<body>
-  <header>
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Deepak Prakash</a>
-        <!-- <div class="fb-share-button" data-href="https://deepak6sp.github.io/" data-layout="button_count" data-size="small" data-mobile-iframe="true">
-          <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeepak6sp.github.io%2F&amp;src=sdkpreparse">
-            Share
-          </a>
-        </div> -->
-      </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          
-            <li><a href="/about">About</a></li>
-          
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-</header>
-
-  <div class="content">
-    <div class="container">
-      <div class="post">
-  <h1 class="postTitle">Show git branch on the bash command prompt</h1>
-  <p class="text-success">
-    24 Jan 2017
-  </p>
-  <div class="row">
-  <div class="col-xs-2 col-md-1">
-    <a class="twitter-share-button"
-      href="https://twitter.com/intent/tweet?text=Show git branch on the bash command prompt https://deepak6sp.github.io/git/2017/01/24/Show-git-branch-on-bash-command-prompt.html">
-    </a>
-  </div>
-  <div class="col-xs-10">
-    <script src="https://platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
-    <script type="IN/Share" data-url="https://deepak6sp.github.io/git/2017/01/24/Show-git-branch-on-bash-command-prompt.html" data-counter="right"></script>
-  </div>
-</div>
-
-  </br>
-  <p>By default, command prompt does not display git branch names. You would generally see this.</p>
-
-<pre>deepak@deepak ~ $</pre>
-
-<p>In the terminal, type</p>
-<pre>
-touch ~/.bash_profile
-vi ~/.bash_profile
-</pre>
-
-<p>Now, in .bash_profile, copy the code below</p>
-<pre>
-parse_git_branch() {
-  git branch 2&gt; /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
-</pre>
-
-<p>Reopen terminal</p>
-
-<pre>deepak@deepak ~ <span style="color:#27ae60">(master)</span> $</pre>
-
-  </br>
-
-</div>
-
-    </div>
-  </div><!-- end .content -->
-  
-  <footer>
-  <hr/>
-  <div class="container-fluid container">
-    <p class="pull-left">Written with ♡ </p>
-    <p class="pull-right">© 2017 Deepak Prakash</p>
-  </div>
-</footer>
-
-  <!-- Add jQuery and other scripts -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- <script>window.jQuery || document.write('<script src=""><\/script>')</script> -->
 
 </body>
 </html>

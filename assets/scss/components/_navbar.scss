@@ -1,0 +1,19 @@
+nav {
+  .brand-logo {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+
+  .button-collapse {
+    display: block!important;
+    margin: 0 10px;
+  }
+
+  .side-nav{
+    h5{
+      color:$primary_color;
+      padding: 0 16px;
+    }
+  }
+}
