@@ -1,20 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-03-11T18:28:24+11:00</updated><id>http://localhost:4000/</id><title type="html">Deepak Prakash</title><entry><title type="html">Getting started with Jenkins and Git integration</title><link href="http://localhost:4000/devops/2017/03/10/Getting-started-with-Jenkins-and-Git-integration.html" rel="alternate" type="text/html" title="Getting started with Jenkins and Git integration" /><published>2017-03-10T22:21:57+11:00</published><updated>2017-03-10T22:21:57+11:00</updated><id>http://localhost:4000/devops/2017/03/10/Getting-started-with-Jenkins-and-Git-integration</id><content type="html" xml:base="http://localhost:4000/devops/2017/03/10/Getting-started-with-Jenkins-and-Git-integration.html">&lt;p&gt;To get started, go to https://jenkins.io/index.html. Under LTS release, just click the build button, which will start downloading .war format.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-03-11T18:41:57+11:00</updated><id>http://localhost:4000/</id><title type="html">Deepak Prakash</title><entry><title type="html">Getting started with Jenkins and Git integration</title><link href="http://localhost:4000/devops/2017/03/10/Getting-started-with-Jenkins-and-Git-integration.html" rel="alternate" type="text/html" title="Getting started with Jenkins and Git integration" /><published>2017-03-10T22:21:57+11:00</published><updated>2017-03-10T22:21:57+11:00</updated><id>http://localhost:4000/devops/2017/03/10/Getting-started-with-Jenkins-and-Git-integration</id><content type="html" xml:base="http://localhost:4000/devops/2017/03/10/Getting-started-with-Jenkins-and-Git-integration.html">&lt;p&gt;To get started, go to https://jenkins.io/index.html. Under LTS release, just click the build button, which will start downloading .war format.&lt;/p&gt;
 
-&lt;p&gt;Make sure you have java runtime installed. You can check this by typing&lt;/p&gt;
+&lt;p&gt;Make sure you have java runtime installed. You could verify on the terminal by typing&lt;/p&gt;
 &lt;pre&gt;java -version&lt;/pre&gt;
 
 &lt;p&gt;Now, go to folder where jenkins.war file is downloaded. Then, in command line, type&lt;/p&gt;
 &lt;pre&gt;java -jar jenkins.war&lt;/pre&gt;
 &lt;p&gt;This will start installing Jenkins.&lt;/p&gt;
 
-&lt;p&gt;Jenkins is initially configured to be secure on first launch. Jenkins can no longer be accessed without a username and password and open ports are limited.&lt;/p&gt;
+&lt;p&gt;Jenkins is initially configured to be secure on first launch. It can no longer be accessed without a username and password and open ports are limited.&lt;/p&gt;
 
-&lt;p&gt;While jenkins is getting installed, note down the password displayed. This is the admin password for initial setup.&lt;/p&gt;
+&lt;p&gt;While it is getting installed, note down the password displayed on the terminal. This is the admin password for initial setup.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/jenkins-1.png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Open any browser and go to&lt;/p&gt;
 &lt;pre&gt;http://localhost:8080&lt;/pre&gt;
 
-&lt;p&gt;You can see Jenkins page is running. Please use the password saved before and click &lt;strong&gt;continue&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;You can see Jenkins page is running. Use the password saved before, and click &lt;strong&gt;continue&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;On the next screen, select install &lt;strong&gt;suggested&lt;/strong&gt; plugins. You could select &lt;strong&gt;none&lt;/strong&gt; for now as we will install relevant plugins when needed, in future.&lt;/p&gt;
 

@@ -6,21 +6,23 @@ categories: DevOps
 ---
 To get started, go to https://jenkins.io/index.html. Under LTS release, just click the build button, which will start downloading .war format.
 
-Make sure you have java runtime installed. You can check this by typing
+Make sure you have java runtime installed. You could verify on the terminal by typing
 <pre>java -version</pre>
 
 Now, go to folder where jenkins.war file is downloaded. Then, in command line, type
 <pre>java -jar jenkins.war</pre>
 This will start installing Jenkins.
 
-Jenkins is initially configured to be secure on first launch. Jenkins can no longer be accessed without a username and password and open ports are limited.
+Jenkins is initially configured to be secure on first launch. It can no longer be accessed without a username and password and open ports are limited.
 
-While jenkins is getting installed, note down the password displayed. This is the admin password for initial setup.
+While it is getting installed, note down the password displayed on the terminal. This is the admin password for initial setup.
+
+<img src='/assets/images/jenkins-1.png'/>
 
 Open any browser and go to
 <pre>http://localhost:8080</pre>
 
-You can see Jenkins page is running. Please use the password saved before and click <strong>continue</strong>.
+You can see Jenkins page is running. Use the password saved before, and click <strong>continue</strong>.
 
 On the next screen, select install <strong>suggested</strong> plugins. You could select <strong>none</strong> for now as we will install relevant plugins when needed, in future.
 
