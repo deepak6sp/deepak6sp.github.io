@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Getting started with Jenkins and Git integration"
-date:   2017-01-24 22:21:57 +1100
+date:   2017-03-10 22:21:57 +1100
 categories: DevOps
 ---
 To get started, go to https://jenkins.io/index.html. Under LTS release, just click the build button, which will start downloading .war format.
