@@ -25,6 +25,9 @@ pre {
 figure {
   margin: 0px; }
 
+img {
+  max-width: 100%; }
+
 .fb-share-button {
   margin-top: 15px;
   max-height: 20px; }
@@ -56,6 +59,3 @@ nav .side-nav li {
   .mdl-card h6 {
     margin-top: 0px;
     margin-left: 16px; }
-
-img {
-  max-width: 100%; }
