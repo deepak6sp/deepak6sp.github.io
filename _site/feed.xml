@@ -1,4 +1,59 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-03-11T18:01:29+11:00</updated><id>http://localhost:4000/</id><title type="html">Deepak Prakash</title><entry><title type="html">Mock date with MomentJS ( Jasmine Unit Test )</title><link href="http://localhost:4000/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test.html" rel="alternate" type="text/html" title="Mock date with MomentJS ( Jasmine Unit Test )" /><published>2017-03-01T10:21:57+11:00</published><updated>2017-03-01T10:21:57+11:00</updated><id>http://localhost:4000/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test</id><content type="html" xml:base="http://localhost:4000/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test.html">&lt;p&gt;MomentJS &lt;a href=&quot;https://momentjs.com/&quot; target=&quot;\_blank&quot;&gt;( https://momentjs.com/ )&lt;/a&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-03-11T18:28:24+11:00</updated><id>http://localhost:4000/</id><title type="html">Deepak Prakash</title><entry><title type="html">Getting started with Jenkins and Git integration</title><link href="http://localhost:4000/devops/2017/03/10/Getting-started-with-Jenkins-and-Git-integration.html" rel="alternate" type="text/html" title="Getting started with Jenkins and Git integration" /><published>2017-03-10T22:21:57+11:00</published><updated>2017-03-10T22:21:57+11:00</updated><id>http://localhost:4000/devops/2017/03/10/Getting-started-with-Jenkins-and-Git-integration</id><content type="html" xml:base="http://localhost:4000/devops/2017/03/10/Getting-started-with-Jenkins-and-Git-integration.html">&lt;p&gt;To get started, go to https://jenkins.io/index.html. Under LTS release, just click the build button, which will start downloading .war format.&lt;/p&gt;
+
+&lt;p&gt;Make sure you have java runtime installed. You can check this by typing&lt;/p&gt;
+&lt;pre&gt;java -version&lt;/pre&gt;
+
+&lt;p&gt;Now, go to folder where jenkins.war file is downloaded. Then, in command line, type&lt;/p&gt;
+&lt;pre&gt;java -jar jenkins.war&lt;/pre&gt;
+&lt;p&gt;This will start installing Jenkins.&lt;/p&gt;
+
+&lt;p&gt;Jenkins is initially configured to be secure on first launch. Jenkins can no longer be accessed without a username and password and open ports are limited.&lt;/p&gt;
+
+&lt;p&gt;While jenkins is getting installed, note down the password displayed. This is the admin password for initial setup.&lt;/p&gt;
+
+&lt;p&gt;Open any browser and go to&lt;/p&gt;
+&lt;pre&gt;http://localhost:8080&lt;/pre&gt;
+
+&lt;p&gt;You can see Jenkins page is running. Please use the password saved before and click &lt;strong&gt;continue&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;On the next screen, select install &lt;strong&gt;suggested&lt;/strong&gt; plugins. You could select &lt;strong&gt;none&lt;/strong&gt; for now as we will install relevant plugins when needed, in future.&lt;/p&gt;
+
+&lt;p&gt;Jenkins will start installing plugins, if you still like to proceed, and this could take few minutes. After installation, you will be directed to new admin user create page.&lt;/p&gt;
+
+&lt;p&gt;You could either start as new user or click &lt;strong&gt;continue as admin&lt;/strong&gt; at the bottom of the page.&lt;/p&gt;
+
+&lt;p&gt;Thus, Jenkins installation is completed.&lt;/p&gt;
+
+&lt;p&gt;Now, we will start integrating Git with Jenkins, Click create &lt;strong&gt;New Item&lt;/strong&gt; and enter item name. For example, “Demo”. Select “Freestyle Project” and click ok.&lt;/p&gt;
+
+&lt;p&gt;In the next page, select “Source Code Management” tab, and select ‘Git’ option.&lt;/p&gt;
+
+&lt;p&gt;If you can’t find git options, please install git plugin, by going back to&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;managejenkins -&amp;gt; manage plugins -&amp;gt; available&lt;/strong&gt;,&lt;/p&gt;
+
+&lt;p&gt;then in filter by type “git plugin”. Select and install.&lt;/p&gt;
+
+&lt;p&gt;Then, go to &lt;strong&gt;Build triggers&lt;/strong&gt; tab and select &lt;strong&gt;Poll SCM&lt;/strong&gt;. Type &lt;strong&gt;* * * * *&lt;/strong&gt; to check your git repo every second for changes.&lt;/p&gt;
+
+&lt;p&gt;Then , in the &lt;strong&gt;Build&lt;/strong&gt; tab , from the dropdown,  select &lt;strong&gt;Execute shell&amp;lt;/strong if you are on mac or linux else select &lt;strong&gt;Execute Windows batch command&lt;/strong&gt;, if you are on windows.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Type command you are intended to run in the textarea. Finally, click &lt;strong&gt;save and apply&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;However, polling git for changes every second is inefficient. So, in order to poll only when there is commit to GitHub, install &lt;strong&gt;github plugin&lt;strong&gt;.&lt;/strong&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, if you go back to &lt;strong&gt;build triggers&lt;/strong&gt; tab, you will see a new option.
+&lt;strong&gt;GitHub hook trigger for GITScm polling&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Select, click &lt;strong&gt;apply and save&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now, we need to activate Jenkins GitHub Plugin which can automatically trigger build jobs when pushes are made to GitHub. So, in github website, go to &lt;strong&gt;settings&lt;/strong&gt; of the repository.
+On left tab section,  select &lt;strong&gt;integration and services&lt;/strong&gt; tab. Click &lt;strong&gt;add service&lt;/strong&gt; and from dropdown, select &lt;strong&gt;Jenkins(GitHub plugin)&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Provide &lt;strong&gt;Jenkins hook url&lt;/strong&gt;, which is the jerkin server address you are running&lt;/p&gt;
+&lt;pre&gt;http://jenkins-domain-name:8080/github-webhook/&lt;/pre&gt;
+
+&lt;p&gt;Finally, click &lt;strong&gt;Add service&lt;/strong&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">To get started, go to https://jenkins.io/index.html. Under LTS release, just click the build button, which will start downloading .war format.</summary></entry><entry><title type="html">Mock date with MomentJS ( Jasmine Unit Test )</title><link href="http://localhost:4000/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test.html" rel="alternate" type="text/html" title="Mock date with MomentJS ( Jasmine Unit Test )" /><published>2017-03-01T10:21:57+11:00</published><updated>2017-03-01T10:21:57+11:00</updated><id>http://localhost:4000/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test</id><content type="html" xml:base="http://localhost:4000/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test.html">&lt;p&gt;MomentJS &lt;a href=&quot;https://momentjs.com/&quot; target=&quot;\_blank&quot;&gt;( https://momentjs.com/ )&lt;/a&gt;
 is a great library for parsing, validating, manipulating, and formatting dates.
 When running Jasmine unit tests, it is easy to mock date and time with just 3 lines of code.&lt;/p&gt;
 
@@ -338,62 +393,7 @@ So, in package.json file, under scripts&lt;/p&gt;
   &lt;span class=&quot;s2&quot;&gt;&quot;start&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;webpack --progress --colors&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;s2&quot;&gt;&quot;watch&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;webpack --progress --colors --watch&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;s2&quot;&gt;&quot;server&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;webpack-dev-server --progress --colors  --content-base ./ —-port 3000 &quot;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name></name></author><summary type="html">Build tools usage is growing and becoming a must learn technology for any web developer these days. Although, there are so many build tools such as gulp and grunt, webpack is at the top.</summary></entry><entry><title type="html">Getting started with Jenkins and Git integration</title><link href="http://localhost:4000/devops/2017/01/24/Getting-started-with-Jenkins-and-Git-integration.html" rel="alternate" type="text/html" title="Getting started with Jenkins and Git integration" /><published>2017-01-24T22:21:57+11:00</published><updated>2017-01-24T22:21:57+11:00</updated><id>http://localhost:4000/devops/2017/01/24/Getting-started-with-Jenkins-and-Git-integration</id><content type="html" xml:base="http://localhost:4000/devops/2017/01/24/Getting-started-with-Jenkins-and-Git-integration.html">&lt;p&gt;To get started, go to https://jenkins.io/index.html. Under LTS release, just click the build button, which will start downloading .war format.&lt;/p&gt;
-
-&lt;p&gt;Make sure you have java runtime installed. You can check this by typing&lt;/p&gt;
-&lt;pre&gt;java -version&lt;/pre&gt;
-
-&lt;p&gt;Now, go to folder where jenkins.war file is downloaded. Then, in command line, type&lt;/p&gt;
-&lt;pre&gt;java -jar jenkins.war&lt;/pre&gt;
-&lt;p&gt;This will start installing Jenkins.&lt;/p&gt;
-
-&lt;p&gt;Jenkins is initially configured to be secure on first launch. Jenkins can no longer be accessed without a username and password and open ports are limited.&lt;/p&gt;
-
-&lt;p&gt;While jenkins is getting installed, note down the password displayed. This is the admin password for initial setup.&lt;/p&gt;
-
-&lt;p&gt;Open any browser and go to&lt;/p&gt;
-&lt;pre&gt;http://localhost:8080&lt;/pre&gt;
-
-&lt;p&gt;You can see Jenkins page is running. Please use the password saved before and click &lt;strong&gt;continue&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;On the next screen, select install &lt;strong&gt;suggested&lt;/strong&gt; plugins. You could select &lt;strong&gt;none&lt;/strong&gt; for now as we will install relevant plugins when needed, in future.&lt;/p&gt;
-
-&lt;p&gt;Jenkins will start installing plugins, if you still like to proceed, and this could take few minutes. After installation, you will be directed to new admin user create page.&lt;/p&gt;
-
-&lt;p&gt;You could either start as new user or click &lt;strong&gt;continue as admin&lt;/strong&gt; at the bottom of the page.&lt;/p&gt;
-
-&lt;p&gt;Thus, Jenkins installation is completed.&lt;/p&gt;
-
-&lt;p&gt;Now, we will start integrating Git with Jenkins, Click create &lt;strong&gt;New Item&lt;/strong&gt; and enter item name. For example, “Demo”. Select “Freestyle Project” and click ok.&lt;/p&gt;
-
-&lt;p&gt;In the next page, select “Source Code Management” tab, and select ‘Git’ option.&lt;/p&gt;
-
-&lt;p&gt;If you can’t find git options, please install git plugin, by going back to&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;managejenkins -&amp;gt; manage plugins -&amp;gt; available&lt;/strong&gt;,&lt;/p&gt;
-
-&lt;p&gt;then in filter by type “git plugin”. Select and install.&lt;/p&gt;
-
-&lt;p&gt;Then, go to &lt;strong&gt;Build triggers&lt;/strong&gt; tab and select &lt;strong&gt;Poll SCM&lt;/strong&gt;. Type &lt;strong&gt;* * * * *&lt;/strong&gt; to check your git repo every second for changes.&lt;/p&gt;
-
-&lt;p&gt;Then , in the &lt;strong&gt;Build&lt;/strong&gt; tab , from the dropdown,  select &lt;strong&gt;Execute shell&amp;lt;/strong if you are on mac or linux else select &lt;strong&gt;Execute Windows batch command&lt;/strong&gt;, if you are on windows.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Type command you are intended to run in the textarea. Finally, click &lt;strong&gt;save and apply&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;However, polling git for changes every second is inefficient. So, in order to poll only when there is commit to GitHub, install &lt;strong&gt;github plugin&lt;strong&gt;.&lt;/strong&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Now, if you go back to &lt;strong&gt;build triggers&lt;/strong&gt; tab, you will see a new option.
-&lt;strong&gt;GitHub hook trigger for GITScm polling&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Select, click &lt;strong&gt;apply and save&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Now, we need to activate Jenkins GitHub Plugin which can automatically trigger build jobs when pushes are made to GitHub. So, in github website, go to &lt;strong&gt;settings&lt;/strong&gt; of the repository.
-On left tab section,  select &lt;strong&gt;integration and services&lt;/strong&gt; tab. Click &lt;strong&gt;add service&lt;/strong&gt; and from dropdown, select &lt;strong&gt;Jenkins(GitHub plugin)&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Provide &lt;strong&gt;Jenkins hook url&lt;/strong&gt;, which is the jerkin server address you are running&lt;/p&gt;
-&lt;pre&gt;http://jenkins-domain-name:8080/github-webhook/&lt;/pre&gt;
-
-&lt;p&gt;Finally, click &lt;strong&gt;Add service&lt;/strong&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">To get started, go to https://jenkins.io/index.html. Under LTS release, just click the build button, which will start downloading .war format.</summary></entry><entry><title type="html">Show git branch on the bash command prompt</title><link href="http://localhost:4000/git/2017/01/24/Show-git-branch-on-bash-command-prompt.html" rel="alternate" type="text/html" title="Show git branch on the bash command prompt" /><published>2017-01-24T22:21:57+11:00</published><updated>2017-01-24T22:21:57+11:00</updated><id>http://localhost:4000/git/2017/01/24/Show-git-branch-on-bash-command-prompt</id><content type="html" xml:base="http://localhost:4000/git/2017/01/24/Show-git-branch-on-bash-command-prompt.html">&lt;p&gt;By default, command prompt does not display git branch names. You would generally see this.&lt;/p&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name></name></author><summary type="html">Build tools usage is growing and becoming a must learn technology for any web developer these days. Although, there are so many build tools such as gulp and grunt, webpack is at the top.</summary></entry><entry><title type="html">Show git branch on the bash command prompt</title><link href="http://localhost:4000/git/2017/01/24/Show-git-branch-on-bash-command-prompt.html" rel="alternate" type="text/html" title="Show git branch on the bash command prompt" /><published>2017-01-24T22:21:57+11:00</published><updated>2017-01-24T22:21:57+11:00</updated><id>http://localhost:4000/git/2017/01/24/Show-git-branch-on-bash-command-prompt</id><content type="html" xml:base="http://localhost:4000/git/2017/01/24/Show-git-branch-on-bash-command-prompt.html">&lt;p&gt;By default, command prompt does not display git branch names. You would generally see this.&lt;/p&gt;
 
 &lt;pre&gt;deepak@deepak ~ $&lt;/pre&gt;
 
