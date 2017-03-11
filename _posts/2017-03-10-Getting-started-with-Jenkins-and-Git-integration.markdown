@@ -32,6 +32,9 @@ You could either start as new user or click <strong>continue as admin</strong> a
 
 Thus, Jenkins installation is completed.
 
+<br />
+<h5 class="blue-text text-darken-2">Git Integration</h5>
+
 Now, we will start integrating Git with Jenkins, Click create <strong>New Item</strong> and enter item name. For example, “Demo”. Select “Freestyle Project” and click ok.
 
 In the next page, select “Source Code Management” tab, and select 'Git' option.
