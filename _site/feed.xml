@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-03-12T22:35:34+11:00</updated><id>http://localhost:4000/</id><title type="html">Deepak Prakash</title><entry><title type="html">Getting started with Jenkins and Git integration</title><link href="http://localhost:4000/devops/2017/03/10/Getting-started-with-Jenkins-and-Git-integration.html" rel="alternate" type="text/html" title="Getting started with Jenkins and Git integration" /><published>2017-03-10T22:21:57+11:00</published><updated>2017-03-10T22:21:57+11:00</updated><id>http://localhost:4000/devops/2017/03/10/Getting-started-with-Jenkins-and-Git-integration</id><content type="html" xml:base="http://localhost:4000/devops/2017/03/10/Getting-started-with-Jenkins-and-Git-integration.html">&lt;p&gt;To get started, go to https://jenkins.io/index.html. Under LTS release, just click the build button, which will start downloading .war format.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-03-12T22:39:38+11:00</updated><id>http://localhost:4000/</id><title type="html">Deepak Prakash</title><entry><title type="html">Getting started with Jenkins and Git integration</title><link href="http://localhost:4000/devops/2017/03/10/Getting-started-with-Jenkins-and-Git-integration.html" rel="alternate" type="text/html" title="Getting started with Jenkins and Git integration" /><published>2017-03-10T22:21:57+11:00</published><updated>2017-03-10T22:21:57+11:00</updated><id>http://localhost:4000/devops/2017/03/10/Getting-started-with-Jenkins-and-Git-integration</id><content type="html" xml:base="http://localhost:4000/devops/2017/03/10/Getting-started-with-Jenkins-and-Git-integration.html">&lt;p&gt;To get started, go to https://jenkins.io/index.html. Under LTS release, just click the build button, which will start downloading .war format.&lt;/p&gt;
 
 &lt;p&gt;Make sure you have java runtime installed. You could verify on the terminal by typing&lt;/p&gt;
 &lt;pre&gt;java -version&lt;/pre&gt;
@@ -58,7 +58,334 @@ On left tab section,  select &lt;strong&gt;integration and services&lt;/strong&g
 &lt;p&gt;Provide &lt;strong&gt;Jenkins hook url&lt;/strong&gt;, which is the jerkin server address you are running&lt;/p&gt;
 &lt;pre&gt;http://jenkins-domain-name:8080/github-webhook/&lt;/pre&gt;
 
-&lt;p&gt;Finally, click &lt;strong&gt;Add service&lt;/strong&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">To get started, go to https://jenkins.io/index.html. Under LTS release, just click the build button, which will start downloading .war format.</summary></entry><entry><title type="html">Mock date with MomentJS ( Jasmine Unit Test )</title><link href="http://localhost:4000/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test.html" rel="alternate" type="text/html" title="Mock date with MomentJS ( Jasmine Unit Test )" /><published>2017-03-01T10:21:57+11:00</published><updated>2017-03-01T10:21:57+11:00</updated><id>http://localhost:4000/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test</id><content type="html" xml:base="http://localhost:4000/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test.html">&lt;p&gt;MomentJS &lt;a href=&quot;https://momentjs.com/&quot; target=&quot;\_blank&quot;&gt;( https://momentjs.com/ )&lt;/a&gt;
+&lt;p&gt;Finally, click &lt;strong&gt;Add service&lt;/strong&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">To get started, go to https://jenkins.io/index.html. Under LTS release, just click the build button, which will start downloading .war format.</summary></entry><entry><title type="html">React/Redux application and testing</title><link href="http://localhost:4000/development/testing/2017/03/09/React-Redux-Application-And-Testing.html" rel="alternate" type="text/html" title="React/Redux application and testing" /><published>2017-03-09T22:21:57+11:00</published><updated>2017-03-09T22:21:57+11:00</updated><id>http://localhost:4000/development/testing/2017/03/09/React-Redux-Application-And-Testing</id><content type="html" xml:base="http://localhost:4000/development/testing/2017/03/09/React-Redux-Application-And-Testing.html">&lt;p&gt;Redux is a predictable state container for JavaScript apps. However, it can be combined with other js libraries such as React. We will divide the application development into
+3 parts.&lt;/p&gt;
+
+&lt;p&gt;Part 1 &lt;br /&gt;
+&lt;a class=&quot;smooth-scroll&quot; href=&quot;#getting-started&quot;&gt;Getting started with a simple react application&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Part 2 &lt;br /&gt;
+&lt;a class=&quot;smooth-scroll&quot; href=&quot;#extending-app&quot;&gt;Extending it to a redux application&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Part 3 &lt;br /&gt;
+&lt;a class=&quot;smooth-scroll&quot; href=&quot;#testing-app&quot;&gt;Testing using Mocha, Chai and Enzyme&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h5 class=&quot;blue-text text-darken-2&quot; id=&quot;getting-started&quot;&gt;Getting started with a simple react application&lt;/h5&gt;
+
+&lt;p&gt;If u have not have installed node on your system, here is a quick tutorial about how to install latest version of node and npm. &lt;a target=&quot;\_blank&quot; href=&quot;https://docs.npmjs.com/getting-started/installing-node&quot;&gt;https://docs.npmjs.com/getting-started/installing-node&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets create a new directory&lt;/p&gt;
+
+&lt;pre&gt;$ touch simple-redux-application&lt;/pre&gt;
+
+&lt;p&gt;and then add “index.html” file  and “scripts” folder as our starting point.&lt;/p&gt;
+
+&lt;p&gt;After installing , on command prompt do&lt;/p&gt;
+
+&lt;pre&gt;$ npm init&lt;/pre&gt;
+
+&lt;p&gt;and follow through all the required fields. This will create a new file package.json in current directory. The final package.json file will look like this.
+&lt;img src=&quot;/assets/images/simple-redux-6.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We will use webpack as our build tool for react jsx and es6 transformation. In the root folder of the project, create &lt;strong&gt;webpack.config.js&lt;/strong&gt; :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;entry: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'./scripts/index.js'&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;output: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;path: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;publicPath: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;filename: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'public/bundle.js'&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;module: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;loaders: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[{&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;exclude: &lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/node_modules/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;loader: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'babel'&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}]&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;resolve: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;extensions: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'.js'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'.jsx'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;devServer: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;contentBase: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'./'&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Lets install node module dependencies required for our development.&lt;/p&gt;
+
+&lt;pre&gt;$ npm install —save react react-dom
+$ npm install —save-dev  webpack  webpack-dev-server babel-core babel-loader babel-preset-es2015 babel-preset-react &lt;/pre&gt;
+
+&lt;p&gt;Now , in index.html file , in body section add&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;main&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&amp;gt;
+    &amp;lt;script src=&quot;./&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;/body&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;where, bundle.js is a script file generated by webpack during runtime as specified in webpack.js.config file under Output configuration&lt;/p&gt;
+
+&lt;p&gt;Now under Scripts folder, create a new file &lt;strong&gt;index.js&lt;/strong&gt;:
+&lt;img src=&quot;/assets/images/simple-redux-5.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now on the terminal, enter this command,&lt;/p&gt;
+&lt;pre&gt;$ npm start&lt;/pre&gt;
+
+&lt;p&gt;Go to http://localhost:8080/webpack-dev-server/  on your browser.&lt;/p&gt;
+
+&lt;p&gt;Your webpage should display as shown.
+&lt;img src=&quot;/assets/images/simple-redux-1.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Congrats! you have successfully implemented a react application.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h5 class=&quot;blue-text text-darken-2&quot; id=&quot;extending-app&quot;&gt;Extending it to a redux application&lt;/h5&gt;
+&lt;p&gt;Lets quickly dive into implementing redux . We will aim to display an item list and the final page will look as below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/simple-redux-2.png&quot; /&gt;
+To start, we will install common npm dependencies.&lt;/p&gt;
+
+&lt;pre&gt;$ npm install --save redux and react-redux &lt;/pre&gt;
+
+&lt;p&gt;We shall modify our &lt;strong&gt;index.js&lt;/strong&gt; :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;react&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ReactDOM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;react-dom&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Provider&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'react-redux'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;createStore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;applyMiddleware&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'redux'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reducers&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./reducers'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Main&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./components/main&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;createStoreWithMiddleware&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;applyMiddleware&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;createStore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;ReactDOM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Provider&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;store&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;createStoreWithMiddleware&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reducers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Main&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/&amp;gt;
+  &amp;lt;/&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Provider&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;“&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;)
+);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Create 2 folders, components and reducers. Reducers are just pure functions.&lt;/p&gt;
+
+&lt;p&gt;In components directory, create 2 files, main.js and list.js.&lt;/p&gt;
+
+&lt;p&gt;In &lt;strong&gt;main.js&lt;/strong&gt; :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;react&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ReactDOM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;react-dom&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;List&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./list&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Main&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;      
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Simple&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;redux&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/h1&amp;gt;
+        &amp;lt;List /&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&amp;gt;
+    );
+  }
+}
+
+export default Main&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;In &lt;strong&gt;list.js&lt;/strong&gt; :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;react&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ReactDOM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;react-dom&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;connect&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;react-redux&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bindActionCreators&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'redux'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Lists&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./../reducers&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;displayList&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;“&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;actions&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;;
+
+class List extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render(){
+    let ListItems = this.props.List.map((element,index) =&amp;gt;{
+      return (
+        &amp;lt;li key={index}&amp;gt; {element}&amp;lt;/li&amp;gt;
+      );
+    });
+
+    return (
+      &amp;lt;div&amp;gt;
+        &amp;lt;h3&amp;gt; Item List &amp;lt;/h3&amp;gt;
+        &amp;lt;ul&amp;gt; {ListItems} &amp;lt;/ul&amp;gt;
+      &amp;lt;/div&amp;gt;
+    );
+  }
+}
+
+function mapStateToProps(state){
+   return  {
+        List: state.Lists
+   }
+}
+
+function mapDispatchToProps(dispatch){
+  const actions = {displayList};
+
+  return bindActionCreators(actions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(List)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;In reducers directory, create 2 files index.js and list_reducers.js&lt;/p&gt;
+
+&lt;p&gt;In &lt;strong&gt;index.js&lt;/strong&gt; :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;combineReducers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;redux&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ListReducer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;“&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list_reducer&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;;
+
+const RootReducer =  combineReducers({
+  Lists : ListReducer
+});
+
+export default RootReducer;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Notice, that we have user combineReducers from redux to combine all reducers into the
+array of root reducers which is inturn exported to list.js component.&lt;/p&gt;
+
+&lt;p&gt;In &lt;strong&gt;list_reducers.js&lt;/strong&gt; :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;learning react application&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;learning redux application&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;learning javascript testing&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;learning redux testing”
+  ]
+}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now, run webpack again,&lt;/p&gt;
+
+&lt;pre&gt;$npm start&lt;/pre&gt;
+
+&lt;p&gt;Output :
+&lt;img src=&quot;/assets/images/simple-redux-2.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;But wait, We will also implement actions and change the state to re-render components based on actions? So, lets go head and implement actions.&lt;/p&gt;
+
+&lt;p&gt;Create new folder actions under scripts.
+Create 2 files index.js and action_types.js&lt;/p&gt;
+
+&lt;p&gt;In &lt;strong&gt;action_types.js&lt;/strong&gt; :&lt;/p&gt;
+
+&lt;pre&gt;
+  export const DISPLAYLIST = “DISPLAYLIST&quot;;
+&lt;/pre&gt;
+
+&lt;p&gt;and, in &lt;strong&gt;index.js&lt;/strong&gt; :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;DISPLAYLIST&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./actions_types'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;displayList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;ss&quot;&gt;type: &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;DISPLAYLIST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;payload&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+			&lt;span class=&quot;s2&quot;&gt;&quot;learning react application&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			&lt;span class=&quot;s2&quot;&gt;&quot;learning redux application&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			&lt;span class=&quot;s2&quot;&gt;&quot;learning javascript testing&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			&lt;span class=&quot;s2&quot;&gt;&quot;learning redux testing&quot;&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now, we need to tweak component/list.js and reducers/list_reducers.js&lt;/p&gt;
+
+&lt;p&gt;In list_reducers.js :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;DISPLAYLIST&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./../actions/actions_types'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;state&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;switch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;DISPLAYLIST&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;payload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;state&lt;/span&gt;
+
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;In list.js, we will add hide show button.&lt;/p&gt;
+&lt;pre&gt;
+&amp;lt;button onClick={this._showHideList.bind(this)}&amp;gt;{showHideText}&amp;lt;/button&amp;gt;
+&lt;/pre&gt;
+&lt;p&gt;_showHideList() will hide/show list&lt;/p&gt;
+
+&lt;p&gt;Now, again run webpack,&lt;/p&gt;
+&lt;pre&gt;$npm run start&lt;/pre&gt;
+
+&lt;p&gt;Congrats! you have successfully running a redux application.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h5 class=&quot;blue-text text-darken-2&quot; id=&quot;testing-app&quot;&gt;Testing using Mocha, Chai and Enzyme&lt;/h5&gt;
+
+&lt;p&gt;Now, we will jump to testing our components.&lt;/p&gt;
+
+&lt;p&gt;Let us first create tests directory in root folder, and also, use the same hierarchy as scripts folder to write out test files.&lt;/p&gt;
+
+&lt;p&gt;So, in tests create components folder and in components folder, create test_main.js.&lt;/p&gt;
+
+&lt;p&gt;Now, we will install npm dependencies.&lt;/p&gt;
+
+&lt;pre&gt;$ npm install —save-dev mocha chai enzyme&lt;/pre&gt;
+
+&lt;p&gt;Note:Enzyme uses several of the utilities provided by React to build its API, So if you encounter error, please install  react-addons-test-utils as dependency.&lt;/p&gt;
+
+&lt;pre&gt;$ npm install —save  react-addons-test-utils&lt;/pre&gt;
+
+&lt;p&gt;In &lt;strong&gt;test_main.js&lt;/strong&gt; :&lt;/p&gt;
+
+&lt;pre&gt;
+import { expect } from &quot;chai&quot;;
+import { shallow } from &quot;enzyme&quot;;
+&lt;/pre&gt;
+
+&lt;p&gt;we shall also import component we need to test&lt;/p&gt;
+&lt;pre&gt;
+import React from &quot;react&quot;;
+import Main from “../../scripts/components/main&quot;;
+&lt;/pre&gt;
+
+&lt;p&gt;Now we shall start writing test. We make our first assertion.&lt;br /&gt;
+Lets assume, &lt;strong&gt;h1 tag to always display the text “Simple redux application”&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;So, in &lt;strong&gt;test_main.js&lt;/strong&gt;,&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;describe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;Main /&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;h1 should display text&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wrapper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shallow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;h1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;contain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Simple redux application&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;then in package.json file, inside scripts add 2 more line to run mocha&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;start&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;mocha --compilers js:babel-register --recursive ./tests&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;test:watch&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;npm test -- --watch&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now, in the terminal, type&lt;/p&gt;
+&lt;pre&gt;
+$ npm run test or
+$ npm run test:watch // to keep track of every change you make
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/simple-redux-4.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You could see how it fails by changing the actual text in the component itself.&lt;/p&gt;
+
+&lt;p&gt;Congrats , you have successfully passed the first test of redux application.&lt;/p&gt;
+
+&lt;p&gt;The complete project can be found at
+&lt;a target=&quot;_blank&quot; href=&quot;https://github.com/deepak6sp/simple-redux-application&quot;&gt;https://github.com/deepak6sp/simple-redux-application&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Redux is a predictable state container for JavaScript apps. However, it can be combined with other js libraries such as React. We will divide the application development into 3 parts.</summary></entry><entry><title type="html">Mock date with MomentJS ( Jasmine Unit Test )</title><link href="http://localhost:4000/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test.html" rel="alternate" type="text/html" title="Mock date with MomentJS ( Jasmine Unit Test )" /><published>2017-03-01T10:21:57+11:00</published><updated>2017-03-01T10:21:57+11:00</updated><id>http://localhost:4000/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test</id><content type="html" xml:base="http://localhost:4000/testing/2017/03/01/Mock-date-with-MomentJS-Jasmine-Unit-Test.html">&lt;p&gt;MomentJS &lt;a href=&quot;https://momentjs.com/&quot; target=&quot;\_blank&quot;&gt;( https://momentjs.com/ )&lt;/a&gt;
 is a great library for parsing, validating, manipulating, and formatting dates.
 When running Jasmine unit tests, it is easy to mock date and time with just 3 lines of code.&lt;/p&gt;
 
