@@ -10,8 +10,9 @@
 
     <ul class="side-nav" id="slide-out">
       <h5>Categories</h5>
-      {% for category in site.categories %}
-        {% assign category_name = category[0] | downcase %}
+      {% assign sorted_categories = site.categories | sort %}
+      {% for category in sorted_categories %}
+        {% assign category_name = category[0] %}
         <li><a class="waves-effect waves-light-blue" href="/categories/{{ category_name }}.html">{{ category[0] | capitalize }}</a></li>
       {% endfor %}
     </ul>

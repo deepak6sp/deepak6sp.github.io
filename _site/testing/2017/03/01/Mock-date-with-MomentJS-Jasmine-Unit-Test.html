@@ -27,17 +27,21 @@
     <ul class="side-nav" id="slide-out">
       <h5>Categories</h5>
       
-        
-        <li><a class="waves-effect waves-light-blue" href="/categories/git.html">Git</a></li>
       
         
-        <li><a class="waves-effect waves-light-blue" href="/categories/buildtools.html">Buildtools</a></li>
+        <li><a class="waves-effect waves-light-blue" href="/categories/BuildTools.html">Buildtools</a></li>
       
         
-        <li><a class="waves-effect waves-light-blue" href="/categories/testing.html">Testing</a></li>
+        <li><a class="waves-effect waves-light-blue" href="/categories/DevOps.html">Devops</a></li>
       
         
-        <li><a class="waves-effect waves-light-blue" href="/categories/devops.html">Devops</a></li>
+        <li><a class="waves-effect waves-light-blue" href="/categories/Development.html">Development</a></li>
+      
+        
+        <li><a class="waves-effect waves-light-blue" href="/categories/Git.html">Git</a></li>
+      
+        
+        <li><a class="waves-effect waves-light-blue" href="/categories/Testing.html">Testing</a></li>
       
     </ul>
     <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -103,6 +107,16 @@ $(document).ready(function(){
     menuWidth: 200, // Default is 300
     closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
   });
+
+  // smooth scrolling
+  $(document).on('click', 'a.smooth-scroll', function(event){
+      event.preventDefault();
+
+      $('html, body').animate({
+          scrollTop: $( $.attr(this, 'href') ).offset().top
+      }, 500);
+  });
+
 })
 </script>
 

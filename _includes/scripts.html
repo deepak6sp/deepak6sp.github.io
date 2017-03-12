@@ -8,6 +8,16 @@ $(document).ready(function(){
     menuWidth: 200, // Default is 300
     closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
   });
+
+  // smooth scrolling
+  $(document).on('click', 'a.smooth-scroll', function(event){
+      event.preventDefault();
+
+      $('html, body').animate({
+          scrollTop: $( $.attr(this, 'href') ).offset().top
+      }, 500);
+  });
+
 })
 </script>
 
