@@ -2,7 +2,7 @@
 layout: post
 title:  "React/Redux application and testing"
 date:   2017-03-09 22:21:57 +1100
-categories: Development
+categories: [Development, Testing]
 ---
 
 Redux is a predictable state container for JavaScript apps. However, it can be combined with other js libraries such as React. We will divide the application development into
